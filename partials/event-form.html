@@ -1,0 +1,25 @@
+<div id="event-form">
+   <h1>{{title}}</h1>
+   <form>
+      <div class="form-group">
+         <label>Event Title</label>
+         <!-- Hook up this form to our JS for submitting -->
+         <input type="text" class="form-control" placeholder="Enter Event Title" ng-model="newEvent.title" />
+      </div>
+               
+      <div class="form-group">
+         <label>Date</label>
+         <input type="text" class="form-control" placeholder="Enter Event Date" ng-model="newEvent.date" />
+      </div>
+
+       <div class="form-group">
+         <label>Event Location</label>
+         <input type="text" class="form-control" placeholder="Enter Event Location" ng-model="newEvent.location" />
+      </div>
+               
+
+               
+      <!-- TODO: bind this button to a function -->
+      <button class="btn btn-default" ng-click="addNewEvent()">{{btnText}}</button>
+   </form>
+</div>

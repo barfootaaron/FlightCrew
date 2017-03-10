@@ -1,0 +1,22 @@
+<div id="flightDetailsContainer">
+    <h1>Flight Details</h1>
+
+    <ul class="list-group">
+        <li class="list-group-item"><strong>Date:</strong> {{selectedFlight.date | date:'fullDate'}}</li>
+        <li class="list-group-item"><strong>Airline:</strong> {{selectedFlight.airline}}</li>
+        <li class="list-group-item"><strong>Flight Number:</strong> {{selectedFlight.number}}</li>
+        <li class="list-group-item"><strong>Departure Airport:</strong> {{selectedFlight.depAirport}}</li>
+        <li class="list-group-item"><strong>Departure Time:</strong> {{selectedFlight.depTime  | date:'shortTime'}}</li>
+        <li class="list-group-item"><strong>Arrival Airport:</strong> {{selectedFlight.arrAirport}}</li>
+        <li class="list-group-item"><strong>Arrival Time:</strong> {{selectedFlight.arrTime  | date:'shortTime'}}</li>
+        <li class="list-group-item"><strong>Number of Passengers:</strong> {{selectedFlight.numPax}}</li>
+        <li class="list-group-item"><strong>Primary Contact Name:</strong> {{selectedFlight.firstContactName}}</li>
+        <li class="list-group-item"><strong>Primary Contact Phone #:</strong> {{selectedFlight.firstContactNum}}</li>
+        <li class="list-group-item"><strong>Secondary Contact:</strong> {{selectedFlight.secondContactName}}</li>
+        <li class="list-group-item"><strong>Secondary Contact Phone #:</strong> {{selectedFlight.secondContactNum}}</li>
+    </ul>
+
+    <button class="btn btn-default"><a ng-href="#!/flights/{{selectedFlight.id}}/edit">Edit Flight</a></button>
+
+    <button class="btn btn-danger glyphicon glyphicon-trash" ng-click="flightDelete(selectedFlight.id)"></button>
+</div>

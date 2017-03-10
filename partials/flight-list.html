@@ -1,0 +1,30 @@
+<div id="search-input" class="col-xs-8 col-xs-offset-2">
+   <div class="input-group">
+      <span class="input-group-btn">
+         <button id="navInputBtn" class="glyphicon glyphicon-search btn btn-default"><i class="fa fa-search" aria-hidden="true"></i></button>
+      </span>
+      <input type="text" id="navInput" class="form-control" placeholder="Search Flights..." ng-model="searchText.search">
+   </div>
+</div>
+
+<div id="flightList-container">
+	<div class="flight-card row" ng-repeat="flight in flights | filter:searchText.search">
+		<ul class="flight-card col-xs-12">
+			<h1><a ng-href="#!/flights/{{flight.id}}">{{flight.airline}} Flight # {{flight.number}} |
+			{{flight.depAirport}} <div class="glyphicon glyphicon-arrow-right"> </div> {{flight.arrAirport}}</a></h1>
+			<h2>{{flight.date | date:'fullDate'}}</h2>
+
+			<i class="passengerHeading">*Departs from {{flight.depAirport}} at {{flight.depTime | date:'shortTime'}}</i>
+			<i class="passengerHeading">	|	</i>
+			<i class="passengerHeading">Arrives to {{flight.arrAirport}} at {{flight.arrTime | date:'shortTime'}}</i>
+			<hr>
+			<div class="pax-card-info row">
+				<b class="passengerHeading">Total Number of Passengers: {{flight.numPax}}</b>
+				<li>Primary Contact: {{flight.firstContactName}} 	-	<div class="glyphicon glyphicon-earphone"></div>	<a href="tel:+1{{flight.firstContactNum}}">{{flight.firstContactNum}}</a></li>
+				<li>Secondary Contact: {{flight.secondContactName}} 	-	<div class="glyphicon glyphicon-earphone"></div>	<a href="tel:+1{{flight.secondContactNum}}">{{flight.secondContactNum}}</a></li>
+			</div>
+ 		
+ 		</ul>
+		
+	</div>
+</div>		
