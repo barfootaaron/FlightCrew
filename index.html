@@ -7,7 +7,16 @@
 	<link rel="stylesheet" type="text/css" href="lib/node_modules/bootstrap/dist/css/bootstrap.min.css">
    <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
-<body>
+
+<body ng-app="FlightCrewApp">
+
+	<div ng-include="'partials/navbar.html'"></div>
+
+	<div id="ng-view" ng-view></div>
+
+
+
+
 
 
 <!-- NODE MODULE SCRIPTS -->
@@ -17,15 +26,31 @@
 <script type="text/javascript" src="lib/node_modules/angular-route/angular-route.min.js"></script>
 <script type="text/javascript" src="lib/node_modules/firebase/firebase.js"></script>
 
-<!-- APP SCRIPT | MUST GO ABOVE VALUES, FACTORIES AND CONTROLLERS -->
+<!-- APP SCRIPT | MUST GO ABOVE VALUE, FACTORY AND CONTROLLER SCRIPTS -->
 <script type="text/javascript" src="app/app.js"></script>
 
 <!-- ANGULAR VALUES SCRIPT -->
 <script type="text/javascript" src="app/values/fb-creds.js"></script>
 
 <!-- ANGULAR FACTORY SCRIPTS -->
+<script type="text/javascript" src="app/factories/UserFactory.js"></script>
+<script type="text/javascript" src="app/factories/AuthFactory.js"></script>
+<script type="text/javascript" src="app/factories/FilterFactory.js"></script>
+<script type="text/javascript" src="app/factories/EventFactory.js"></script>
+<script type="text/javascript" src="app/factories/FlightFactory.js"></script>
 
 
 <!-- ANGULAR CONTROLLER SCRIPTS -->
+<script type="text/javascript" src="app/controllers/UserCtrl.js"></script>
+<script type="text/javascript" src="app/controllers/NavCtrl.js"></script>
+<script type="text/javascript" src="app/controllers/EventNewCtrl.js"></script>
+<script type="text/javascript" src="app/controllers/EventListCtrl.js"></script>
+<script type="text/javascript" src="app/controllers/FlightViewCtrl.js"></script>
+<script type="text/javascript" src="app/controllers/FlightsByTripCtrl.js"></script>
+<script type="text/javascript" src="app/controllers/FlightNewCtrl.js"></script>
+<script type="text/javascript" src="app/controllers/FlightListCtrl.js"></script>
+<script type="text/javascript" src="app/controllers/FlightEditCtrl.js"></script>
+
+
 </body>
 </html>
