@@ -1,62 +1,83 @@
 <div id="flight-form">
-   <h1>{{title}}</h1>
-   <form>
-      <div class="form-group">
-         <label>Flight date</label>
-         <input required type="date" class="glyphicon glyphicon-calendar form-control"  ng-model="newFlight.date" min="2017-03-15" />
+   <br><h3>{{title}}</h3>
+   <form class="flight-form col s12">
+      <div id="firstRow" class="row">
+         <input-field class="col s16">
+            <label for="flight_date">Flight date</label>
+            <input id="flight_date" type="date" class="datepicker" ng-model="newFlight.date" min="2017-03-15">
+         </input-field>
+         <input-field type="select" class="col s16">
+            <label for="flight_date">Flight date</label>
+            <input id="flight_date" type="date" class="datepicker" ng-model="newFlight.date" min="2017-03-15">
+         </input-field>
       </div>
 
-      <div class="form-group">
-         <label>Airline</label>
-         <input required type="text" class="form-control" placeholder="Please enter full airline name" ng-model="newFlight.airline" />
+      <div class="row">
+         <input-field class="col s6">
+            <label for="airline">Airline</label>
+            <input id="airline" type="text" class="form-control" ng-model="newFlight.airline" required>      
+         </input-field>
+         <input-field class="col s6">
+            <label for="flight_num">Flight Number</label>
+            <input id="flight_num" type="number" class="form-control" ng-model="newFlight.number" required>
+         </input-field>
       </div>
 
-      <div class="form-group">
-         <label>Flight Number</label>
-         <input required type="number" class="form-control" placeholder="Enter flight #" ng-model="newFlight.number" />
-      </div>
-
-      <div class="form-group">
-         <label>Departing Airport</label><i>- Please use 3 digit airport code (ex: LAX)</i>
-         <input required type="text" class="form-control" placeholder="Enter departing airport" ng-model="newFlight.depAirport" />
-         <a target="_blank" href="http://www.airportcodes.org/">See List of airports here</a>
-      </div>
-
-      <div class="form-group">
-         <label>Scheduled Departure Time</label>
-         <input required type="time" class="form-control" placeholder="Enter scheduled departure time" ng-model="newFlight.depTime" min="{{minTime | date:'HH:mm:ss'}}" max="{{maxTime | date:'HH:mm:ss'}}" />
+      <div class="row">
+         <input-field class="col s6">
+            <label for="dep_airport">Departing Airport<i>- Please use 3 digit airport code (ex: LAX)</i></label>
+            <input id="dep_airport" type="text" class="form-control" ng-model="newFlight.depAirport" required>
+            <a target="_blank" href="http://www.airportcodes.org/"><i>See a full list of airport codes here</i></a>
+         </input-field>
+         <input-field class="col s6">
+            <label for="sched_dep_time">Scheduled Departure Time</label>
+            <input id="sched_dep_time" type="time" class="form-control" ng-model="newFlight.depTime" min="{{minTime | date:'HH:mm:ss'}}" max="{{maxTime | date:'HH:mm:ss'}}" required />
+         </input-field>
       </div>
                
-      <div class="form-group">
-         <label>Arrival Airport</label><i>- Please use 3 digit airport code (ex: ATL)</i>
-         <input required type="text" class="form-control" placeholder="Enter arrival airport" ng-model="newFlight.arrAirport" />
-         <a target="_blank" href="http://www.airportcodes.org/">See List of airports here</a>
+      <div class="row">         
+         <input-field class="col s6">
+            <label for="arr_airport">Arrival Airport<i>- Please use 3 digit airport code (ex: ATL)</i></label>
+            <input id="arr_airport" type="text" ng-model="newFlight.arrAirport" required>
+            <a target="_blank" href="http://www.airportcodes.org/"><i>See a full list of airport codes here</i></a>
+         </input-field>
+         <input-field class="col s6">
+            <label for="sched_arr_time">Scheduled Arrival Time</label>
+            <input id="sched_arr_time" type="time" ng-model="newFlight.arrTime" min="{{minTime | date:'HH:mm:ss'}}" max="{{maxTime | date:'HH:mm:ss'}}" required />
+         </input-field>
       </div>
 
-      <div class="form-group">
-         <label>Scheduled Arrival Time</label>
-         <input required type="time" class="form-control" placeholder="Enter scheduled arrival time" ng-model="newFlight.arrTime" min="{{minTime | date:'HH:mm:ss'}}" max="{{maxTime | date:'HH:mm:ss'}}" />
+      <div class="row">
+         <input-field class="col s6">
+            <label for="num_pax">Total Number of passengers</label>
+            <input id="num_pax" type="number" ng-model="newFlight.numPax" required>
+         </input-field>
       </div>
 
-      <div class="form-group">
-         <label>Total Number of passengers</label>
-         <input required type="number" class="form-control" placeholder="Enter total number of passengers" ng-model="newFlight.numPax" m />
+      <div class="row">
+      <input-field class="col s6">
+            <label for="first_contact_name">Primary Contact Name</label>
+            <input id="first_contact_name" type="text" ng-model="newFlight.firstContactName" required>
+      </input-field>
+      <input-field class="col s6">      
+            <label for="first_contact_num">Primary Contact Cell Phone #</label>
+            <input id="first_contact_num" type="tel" g-model="newFlight.firstContactNum" required>
+      </input-field>   
       </div>
+       <input-field class="col s6">
+         <label>Secondary Contact Name</label>
+         <input type="text" class="form-control" ng-model="newFlight.secondContactName" required>
+      </input-field>
+      <input-field class="col s6">   
+         <label for="second_contact_num">Secondary Contact Cell Phone #</label>
+         <input id="second_contact_num" type="tel" ng-model="newFlight.secondContactNum" required>
+      </input-field>
 
-      <div class="form-group">
-         <label>Primary Contact Info</label>
-         <input required type="text" class="form-control" placeholder="Enter Primary Contact Name" ng-model="newFlight.firstContactName" />
-         <input required type="tel" class="form-control" placeholder="Phone Number (xxx) xxx-xxxx" ng-model="newFlight.firstContactNum" />
-      </div>   
-
-       <div class="form-group">
-         <label>Secondary Contact Info</label>
-         <input required type="text" class="form-control" placeholder="Enter Secondary Contact Name" ng-model="newFlight.secondContactName" />
-         <input required type="tel" class="form-control" placeholder="Phone Number (xxx) xxx-xxxx" ng-model="newFlight.secondContactNum" />
-      </div>
-
-               
-
-      <button class="btn btn-default" ng-click="addNewFlight()">{{btnText}}</button>
+                     
+      <button id="flightFormBtn" class="btn waves-effect waves-light" type="submit" name="action" ng-click="addNewFlight()">{{btnText}}
+         <i class="material-icons right">send</i>
+      </button>
    </form>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>

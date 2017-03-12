@@ -1,25 +1,35 @@
 <div id="event-form">
    <h1>{{title}}</h1>
    <form>
-      <div class="form-group">
+      <input-field class="icol s6">
          <label>Event Title</label>
          <!-- Hook up this form to our JS for submitting -->
          <input type="text" class="form-control" placeholder="Enter Event Title" ng-model="newEvent.title" />
-      </div>
+      </input-field>
                
-      <div class="form-group">
-         <label>Date</label>
-         <input type="text" class="form-control" placeholder="Enter Event Date" ng-model="newEvent.date" />
-      </div>
+      <input-field class="col s6">
+         <label>Start Date</label>
+         <input type="date" class="datepicker" placeholder="Enter Event Start Date" ng-model="newEvent.startDate" />
+      </input-field>
 
-       <div class="form-group">
+      <input-field class="col s6">
+         <label>End Date</label>
+         <input type="date" class="datepicker" placeholder="Enter Event End Date" ng-model="newEvent.endDate" />
+      </input-field>
+
+       <input-field class="col s6">
          <label>Event Location</label>
-         <input type="text" class="form-control" placeholder="Enter Event Location" ng-model="newEvent.location" />
-      </div>
+         <input type="text"  placeholder="Enter Event Location" ng-model="newEvent.location" />
+      </input-field>
                
+      <input-field class="col s6">
+         <label>Area Aiports <i>(i.e. LGA, JFK, NYC)</i></label>
+         <input type="text"  placeholder="Enter Airports in Area" ng-model="newEvent.airports" />
+      </input-field>         
 
-               
-      <!-- TODO: bind this button to a function -->
-      <button class="btn btn-default" ng-click="addNewEvent()">{{btnText}}</button>
+            
+      <button class="btn waves-effect waves-light" type="submit" name="action" ng-click="addNewEvent()">{{btnText}}
+         <i class="material-icons right">send</i>
+      </button>
    </form>
 </div>
