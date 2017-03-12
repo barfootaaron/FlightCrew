@@ -2,6 +2,8 @@
 
 var app = angular.module("FlightCrewApp", ["ngRoute"]);
 
+
+
 let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
   // console.log("running isAuth");
     AuthFactory.isAuthenticated()
@@ -72,6 +74,8 @@ app.run(($location, FBCreds) => {
       authDomain: creds.authDomain,
       databaseURL: creds.databaseURL
    };
+
+   
 
    firebase.initializeApp(authConfig);
 });

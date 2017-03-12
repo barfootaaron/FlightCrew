@@ -1,18 +1,22 @@
-<div id="search-input" class="col-xs-8 col-xs-offset-2">
-   <div class="input-group">
-      <span class="input-group-btn">
-         <button id="navInputBtn" class="glyphicon glyphicon-search btn btn-default"><i class="fa fa-search" aria-hidden="true"></i></button>
-      </span>
-      <input type="text" id="navInput" class="form-control" placeholder="Search Flights..." ng-model="searchText.search">
-   </div>
+
+<div class="search-input" class="col s10">	
+    <div class="nav-wrapper">
+      <form>
+        <div class="input-field">
+          <input id="search" type="search" ng-model="searchText.search">
+          <label for="search"><i class="material-icons">search</i></label>
+        </div>
+      </form>
+   	</div>
+	</div>
 </div>
 
 <div id="flightList-container">
 	<div class="flight-card row" ng-repeat="flight in flights | filter:searchText.search">
-		<ul class="flight-card col-xs-12">
+		<ul class="flight-card col s12">
 			<h1><a ng-href="#!/flights/{{flight.id}}">{{flight.airline}} Flight # {{flight.number}} |
-			{{flight.depAirport}} <div class="glyphicon glyphicon-arrow-right"> </div> {{flight.arrAirport}}</a></h1>
-			<h2>{{flight.date | date:'fullDate'}}</h2>
+			{{flight.depAirport}}<i class="material-icons">arrow_forward</i>{{flight.arrAirport}}</a></h1>
+			<h1>{{flight.date | date:'fullDate'}}</h1>
 
 			<i class="passengerHeading">*Departs from {{flight.depAirport}} at {{flight.depTime | date:'shortTime'}}</i>
 			<i class="passengerHeading">	|	</i>
@@ -20,8 +24,8 @@
 			<hr>
 			<div class="pax-card-info row">
 				<b class="passengerHeading">Total Number of Passengers: {{flight.numPax}}</b>
-				<li>Primary Contact: {{flight.firstContactName}} 	-	<div class="glyphicon glyphicon-earphone"></div>	<a href="tel:+1{{flight.firstContactNum}}">{{flight.firstContactNum}}</a></li>
-				<li>Secondary Contact: {{flight.secondContactName}} 	-	<div class="glyphicon glyphicon-earphone"></div>	<a href="tel:+1{{flight.secondContactNum}}">{{flight.secondContactNum}}</a></li>
+				<li>Primary Contact: {{flight.firstContactName}} 	-	<a href="tel:+1{{flight.firstContactNum}}"> <div class="material-icons">call</div>  # {{flight.firstContactNum}}</a></li>
+				<li>Secondary Contact: {{flight.secondContactName}} 	-	<a href="tel:+1{{flight.secondContactNum}}"> <div class="material-icons">call</div>	  # {{flight.secondContactNum}}</a></li>
 			</div>
  		
  		</ul>

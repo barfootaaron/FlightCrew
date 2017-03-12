@@ -1,22 +1,33 @@
-<div id="flightDetailsContainer">
-    <h1>Flight Details</h1>
+<div id="flightDetailsHeader">
 
+</div>    
+
+    <div id="flightDetailsContainer">
     <ul class="list-group">
-        <li class="list-group-item"><strong>Date:</strong> {{selectedFlight.date | date:'fullDate'}}</li>
-        <li class="list-group-item"><strong>Airline:</strong> {{selectedFlight.airline}}</li>
-        <li class="list-group-item"><strong>Flight Number:</strong> {{selectedFlight.number}}</li>
-        <li class="list-group-item"><strong>Departure Airport:</strong> {{selectedFlight.depAirport}}</li>
-        <li class="list-group-item"><strong>Departure Time:</strong> {{selectedFlight.depTime  | date:'shortTime'}}</li>
-        <li class="list-group-item"><strong>Arrival Airport:</strong> {{selectedFlight.arrAirport}}</li>
-        <li class="list-group-item"><strong>Arrival Time:</strong> {{selectedFlight.arrTime  | date:'shortTime'}}</li>
-        <li class="list-group-item"><strong>Number of Passengers:</strong> {{selectedFlight.numPax}}</li>
-        <li class="list-group-item"><strong>Primary Contact Name:</strong> {{selectedFlight.firstContactName}}</li>
-        <li class="list-group-item"><strong>Primary Contact Phone #:</strong> {{selectedFlight.firstContactNum}}</li>
-        <li class="list-group-item"><strong>Secondary Contact:</strong> {{selectedFlight.secondContactName}}</li>
-        <li class="list-group-item"><strong>Secondary Contact Phone #:</strong> {{selectedFlight.secondContactNum}}</li>
+        <h3>{{selectedFlight.depAirport}}<i class="material-icons">arrow_forward</i>{{selectedFlight.arrAirport}} on {{selectedFlight.date | date:'fullDate'}}</a></h3>
+        <br>
+        <h3>{{selectedFlight.airline}} Flight # {{selectedFlight.number}} </h3>
+        <h5><strong>Departure Airport:</strong> {{selectedFlight.depAirport}}</h5>
+        <h5><strong>Departure Time:</strong> {{selectedFlight.depTime  | date:'shortTime'}}</h5>
+        <hr>
+        <h5><strong>Arrival Airport:</strong> {{selectedFlight.arrAirport}}</h5>
+        <h5><strong>Arrival Time:</strong> {{selectedFlight.arrTime  | date:'shortTime'}}</h5>
+        <a>TODO: Link to arrival airport map</a>
+        
+        <hr>
+        <h5><strong>Total Number of Passengers:</strong> {{selectedFlight.numPax}}</h5>
+
+        <h5><strong>Primary Contact: </strong>{{selectedFlight.firstContactName}} <a href="tel:+1{{selectedFlight.firstContactNum}}"> <div class="material-icons">call</div>  # {{selectedFlight.firstContactNum}}</a></h5>
+
+        <h5><strong>Secondary Contact:</strong> {{selectedFlight.secondContactName}} <a href="tel:+1{{selectedFlight.secondContactNum}}"> <div class="material-icons">call</div>  # {{selectedFlight.secondContactNum}}</a></h5>
     </ul>
 
-    <button class="btn btn-default"><a ng-href="#!/flights/{{selectedFlight.id}}/edit">Edit Flight</a></button>
+    <a class="btn-floating btn-large waves-effect waves-light green" ng-href="#!/flights/{{selectedFlight.id}}/edit">
+        <i class="material-icons">mode_edit</i>
+    </a>
 
-    <button class="btn btn-danger glyphicon glyphicon-trash" ng-click="flightDelete(selectedFlight.id)"></button>
+    <a class="btn-floating btn-large waves-effect waves-light red" ng-click="flightDelete(selectedFlight.id)">
+        <i class="material-icons">delete</i>
+    </a>
+
 </div>

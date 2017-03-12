@@ -3,25 +3,41 @@
 <head>
 	<meta charset="utf-8">
 	<title>FlightCrew</title>
-	<link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" href="lib/node_modules/bootstrap/dist/css/bootstrap.min.css">
-   <link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" href="lib/node_modules/materialize-css/dist/css/materialize.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script rel="stylesheet" src="lib/node_modules/materialize-css/dist/js/materialize.min.js"></script>
+	<script type="text/javascript" src="lib/node_modules/jquery/dist/jquery.min.js"></script>
+	<script rel="stylesheet" src="lib/node_modules/angular-materialize/src/angular-materialize.min.js"></script>	  
 </head>
 
 <body ng-app="FlightCrewApp">
 
 	<div ng-include="'partials/navbar.html'"></div>
 
-	<div id="ng-view" ng-view></div>
+	<div id="ng-view" class="row" ng-view></div>
 
 
 
 
+<script type="text/javascript">
+
+ $( document ).ready(function() {
+        console.log( "document loaded" );
+        $('.datepicker').pickadate({
+    			selectMonths: true, // Creates a dropdown to control month
+    			selectYears: 15 // Creates a dropdown of 15 years to control year
+  });
+        $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15 // Creates a dropdown of 15 years to control year
+  });
+
+  </script>
 
 
 <!-- NODE MODULE SCRIPTS -->
-<script type="text/javascript" src="lib/node_modules/jquery/dist/jquery.min.js"></script>
-<script type="text/javascript" src="lib/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
 <script type="text/javascript" src="lib/node_modules/angular/angular.min.js"></script>
 <script type="text/javascript" src="lib/node_modules/angular-route/angular-route.min.js"></script>
 <script type="text/javascript" src="lib/node_modules/firebase/firebase.js"></script>
@@ -50,7 +66,6 @@
 <script type="text/javascript" src="app/controllers/FlightNewCtrl.js"></script>
 <script type="text/javascript" src="app/controllers/FlightListCtrl.js"></script>
 <script type="text/javascript" src="app/controllers/FlightEditCtrl.js"></script>
-
 
 </body>
 </html>

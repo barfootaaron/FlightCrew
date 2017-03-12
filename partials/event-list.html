@@ -1,17 +1,21 @@
-<div id="event-list">
-   <div id="search-input" class="col-xs-10 col-xs-offset-1">
-      <div class="input-group">
-         <span class="input-group-btn">
-            <button id="navInputBtn" class="glyphicon glyphicon-search btn btn-default"><i class="fa fa-search" aria-hidden="true"></i></button>
-         </span>
-         <input type="text" id="navInput" class="form-control" placeholder="Search Events..." ng-model="searchText.search">
+<div class="search-input" class="col s10">   
+    <div class="nav-wrapper">
+      <form>
+        <div class="input-field">
+          <input id="search" type="search" ng-model="searchText.search">
+          <label for="search"><i class="material-icons">search</i></label>
+        </div>
+      </form>
       </div>
    </div>
+</div>
 
    <div class="row">
-   	<div ng-repeat="event in events" class="col-xs-3 trip-card">
+   	<div ng-repeat="event in events" class="col s5 trip-card">
    		<h1>{{event.title}}</h1>
-   		<i>Pickup date: {{event.date}}</i>
+   		<i>*{{event.startDate | date:'shortDate'}} through {{event.endDate | date:'shortDate'}}</i>
+         <p>Location: {{event.location}}</p>
+         <p>Area Airports: {{event.airports}}</p>
    	</div>
    </div>
 </div>
