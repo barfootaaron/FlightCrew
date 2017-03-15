@@ -37,7 +37,6 @@ body {
    border-color: #26a69a;
    border-radius: 5px;
    padding: 9px;
-
 }
 
 #nav-logo {
@@ -59,13 +58,13 @@ body {
 	background-color: #f5f5f5;
 	display: block;
 	text-align: center;
-	width: 30%;
+	width: 90%;
 	height: 75%;
 	text-align: center;
 	display: block;
 	border: 1px solid #f5f5f5;
 	border-radius: 5px;
-	margin: 30px 35% auto 35%;
+	margin: 30px 5% auto 5%;
 	padding: 20px;
 }
 
@@ -82,16 +81,18 @@ body {
 // EVENT LIST
 
 #event-list {
-	margin-left: 5%;
-	margin-right: 5%;
+	margin-left: 15%;
+	margin-right: 15%;
 }
 
-.trip-card {
+.event-card {
 	margin: 1em;
 	display: inline;
 	list-style-type: none;
 	background-color: #eceff1;
 	border-radius: 5px;
+	box-shadow: 3px 3px 3px;
+
 
 }
 
@@ -109,27 +110,35 @@ hr {
 }
 
 .search-input {
-	margin-left: 5em;
-	margin-right: 5em;
-	margin-bottom: 1.5em;
+	margin: 3em 5em 1.5em 5em;
 	background-color: #e3f2fd;
 	border-radius: 2px;
+	box-shadow: 2px 2px 2px;
 }
 
 // FLIGHT CARD
 
-
-
 .flight-card {
 	display: inline;
 	list-style-type: none;
-	background-color: #eceff1;
+	background-color: #e3f2fd;
 	border-radius: 5px;
 	padding-bottom: 10px !important;
+	padding-top: 20px !important;
+	box-shadow: 3px 3px 3px;
 }
 
 .flight-card h1 {
 	font-size: 2.5em;
+	margin-bottom: 10px;
+	line-height: 1em;
+	margin-top: 0;
+}
+
+.flight-card a {
+	margin-bottom: 0px;
+	padding: 0px;
+	line-height: 1em;
 }
 
 .pax-card-info {
@@ -160,11 +169,12 @@ hr {
 }
 
 #flightDetailsContainer {
-	margin: 5% 10% auto 10%;
+	margin: 5% 5% auto 5%;
 	border: 1px solid #e3f2fd;
 	border-radius: 5px;
 	padding: 15px;
 	background-color: #e3f2fd;
+	box-shadow: 3px 3px 3px;
 }
 
 #flightDetailsContainer h5 {
@@ -177,9 +187,11 @@ hr {
 	margin-left: 1em;
 }
 
-#flightDetailsHeader h3 {
+#flightDetailsContainer h3 {
+	color: #546e7a;
 	font-size: 2.5em;
-	margin-left: 1em;
+	margin: 0 auto 0 .4em;
+
 }
 
 // FLIGHT FORM
@@ -199,6 +211,7 @@ hr {
 	background-color: #e3f2fd;	
 	padding: 10px;
 	padding-top: 30px;
+	box-shadow: 3px 3px 3px;
 }
 
 #flight-form h3 {
@@ -210,10 +223,39 @@ hr {
 	margin-left: 2em;
 }
 
+// EVENT LIST
+
+#eventContainer {
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+// EVENT DETAILS
+
+#eventDetailsContainer {
+	margin: 5% 5% auto 5%;
+	border: 1px solid #e3f2fd;
+	border-radius: 5px;
+	padding: 15px;
+	background-color: #e3f2fd;
+	box-shadow: 3px 3px 3px;
+}
+
 // EVENT FORM
 
 #event-form {
-	margin-left: 30%;
-	margin-right: 30%;
+	margin: 30px 5% auto 5%;
+	border: 1px solid #e3f2fd;
+	border-radius: 5px;
+	background-color: #e3f2fd;	
+	padding: 10px;
+	padding-top: 30px;
+	box-shadow: 3px 3px 3px;
+
 	// border: 1px solid black;
+}
+
+#event-form h1 {
+	font-size: 2.5em;
+
 }

@@ -20,7 +20,9 @@
 
 			<i class="passengerHeading">*Departs from {{flight.depAirport}} at {{flight.depTime | date:'shortTime'}}</i>
 			<i class="passengerHeading">	|	</i>
-			<i class="passengerHeading">Arrives to {{flight.arrAirport}} at {{flight.arrTime | date:'shortTime'}}</i>
+			<i class="passengerHeading">Arrives to {{flight.arrAirport}} at {{flight.arrTime | date:'shortTime'}}</i><br>
+			<b class="passengerHeading">Scheduled Arrival Terminal: {{flight.arrTern}}</b>
+			
 			<hr>
 			<div class="pax-card-info row">
 				<b class="passengerHeading">Total Number of Passengers: {{flight.numPax}}</b>

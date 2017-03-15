@@ -4,25 +4,30 @@
       <h4>Login/Register</h4>
         
       <div class="row">
-        <div class="input-field col s12">
+        <div class="col s3"></div>
+        <div class="input-field col s6">
           <input id="email" class="validate" type="email" ng-model="account.email">
           <label for="email">Email</label>
         </div>
+        <div class="col s3"></div>
       </div>
       <br>
       <div class="row">  
-        <div class="input-field col s12">
+        <div class="col s3"></div>
+        <div class="input-field col s6">
           <input id="password" class="validate" type="password" ng-model="account.password">
           <label for="password">Password</label>
         </div>
+        <div class="col s3"></div>
       </div>    
         
-        <div>
-          <a class="waves-effect waves-light login-btn" ng-click="login()">Login</a>
-          <a class="waves-effect waves-light login-btn" ng-click="register()">Register</a><br>
-          <a id="loginGoogle" class="waves-effect waves-light login-btn" ng-click="loginGoogle()">Login with Google</a>
-        </div>
-      </section>
+      <div>
+        <a class="waves-effect waves-light login-btn" ng-click="login()">Login</a>
+        <a class="waves-effect waves-light login-btn" ng-click="register()">Register</a>
+        <br>
+        <a id="loginGoogle" class="waves-effect waves-light login-btn" ng-click="loginGoogle()">Login with Google</a>
+      </div>
+    </section>
   </div>
 </div>
 

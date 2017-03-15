@@ -15,23 +15,12 @@ console.log("this is FlightListCtrl checking in");
 	FlightFactory.getFlights(user)
 	.then( function(flightList) {
 		$scope.flights = flightList;
-
 	});
 
-   EventFactory.getEvents(user)
-   .then( function(eventList) {
-      $scope.events = eventList;
-      console.log('eventList', eventList);
-   });
+   // EventFactory.getEvents(user)
+   // .then( function(eventList) {
+   //    $scope.events = eventList;
+   //    console.log('eventList', eventList);
+   // });
 
-
-	// $scope.flightDelete = function(flightId) {
- //      console.log("delete this flight", flightId);
- //      FlightFactory.deleteFlight(flightId)
- //      .then( function(response) {
- //         FlightFactory.getFlights(user).then( function(flightList) {
- //            $scope.flights = flightList;
- //         });
- //      });
- //   };
 });

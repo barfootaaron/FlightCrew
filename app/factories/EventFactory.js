@@ -52,35 +52,35 @@ app.factory("EventFactory", ($q, $http, FBCreds, AuthFactory) => {
 
 	};
 
-	// let getSingleBoard = (boardId) => {
-	// 	return $q(function(resolve, reject){
-	// 		$http.get(`${FBCreds.databaseURL}/boards/${boardId}.json`)
-	// 		.then(function (boardObject) {
-	// 			resolve(boardObject.data);
-	// 		})
-	// 		.catch(function(error){
-	// 			reject(error);
-	// 		});
-	// 	});
-	// };
+	let getSingleEvent = (eventId) => {
+		return $q(function(resolve, reject){
+			$http.get(`${FBCreds.databaseURL}/events/${eventId}.json`)
+			.then(function (eventObject) {
+				resolve(eventObject.data);
+			})
+			.catch(function(error){
+				reject(error);
+			});
+		});
+	};
 
-	// let updateBoard = (boardId, editedBoard) => {
-	// 	return $q(function(resolve, reject){
-	// 		$http.patch(`${FBCreds.databaseURL}/boards/${boardId}.json`, 
-	// 			angular.toJson(editedBoard))
-	// 		.then(function(ObjectFromFirebase) {
-	// 			resolve(ObjectFromFirebase);
-	// 		})
-	// 		.catch(function(error){
-	// 			reject(error);
-	// 		});
-	// 	});
-	// };
-
-
+	let updateEvent = (eventId, editedEvent) => {
+		return $q(function(resolve, reject){
+			$http.patch(`${FBCreds.databaseURL}/event/${eventId}.json`, 
+				angular.toJson(editedEvent))
+			.then(function(ObjectFromFirebase) {
+				resolve(ObjectFromFirebase);
+			})
+			.catch(function(error){
+				reject(error);
+			});
+		});
+	};
 
 
 
 
-	return {getEvents, postNewEvent, deleteEvent};  //getSingleBoard, updateBoard};
+
+
+	return {getEvents, postNewEvent, deleteEvent, getSingleEvent, updateEvent};
 });

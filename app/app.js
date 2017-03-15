@@ -1,11 +1,11 @@
 "use strict";
 
-var app = angular.module("FlightCrewApp", ["ngRoute"]);
-
+var app = angular.module("FlightCrewApp", ["ngRoute"]).config(function($sceProvider) {
+  $sceProvider.enabled(false);
+});
 
 
 let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
-  // console.log("running isAuth");
     AuthFactory.isAuthenticated()
     .then ( (userExists) => {
     console.log("userExists", userExists);
@@ -20,34 +20,44 @@ let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
 });
 
 app.config( function($routeProvider) {
-   $routeProvider.
+  $routeProvider.
     when('/', {
       templateUrl: 'partials/login.html',
       controller: "UserCtrl"
-   }).
+  }).
     when('/login', {
       templateUrl: 'partials/login.html',
       controller: "UserCtrl"
-   }).
+  }).
     when('/logout', {
       templateUrl: 'partials/login.html',
       controller: "UserCtrl"
-   }).
+  }).
     when('/events/list', {
       templateUrl: 'partials/event-list.html',
       controller: "EventListCtrl",
       resolve: {isAuth}
-   }).
+  }).
     when('/events/new', {
       templateUrl: 'partials/event-form.html',
       controller: "EventNewCtrl",
       resolve: {isAuth}
+  }).
+    when('/events/:eventId', {
+      templateUrl: "partials/event-details.html",
+      controller: "EventViewCtrl",
+      resolve: {isAuth}
    }).
+    when('/events/:eventId/edit', {
+      templateUrl: "partials/event-form.html",
+      controller: "EventEditCtrl",
+      resolve: {isAuth}
+   }).   
     when('/flights/list', {
       templateUrl: 'partials/flight-list.html',
       controller: "FlightListCtrl",
       resolve: {isAuth}
-    }).  
+   }).  
     when('/flights/new', {
       templateUrl: 'partials/flight-form.html',
       controller: "FlightNewCtrl",
@@ -74,8 +84,6 @@ app.run(($location, FBCreds) => {
       authDomain: creds.authDomain,
       databaseURL: creds.databaseURL
    };
-
    
-
    firebase.initializeApp(authConfig);
 });

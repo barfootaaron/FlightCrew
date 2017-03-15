@@ -10,9 +10,9 @@
    </div>
 </div>
 
-   <div class="row">
-   	<div ng-repeat="event in events" class="col s5 trip-card">
-   		<h1>{{event.title}}</h1>
+   <div id="eventContainer" class="row">
+   	<div ng-repeat="event in events" class="col s5 event-card">
+   		<h1><a ng-href="#!/events/{{event.id}}">{{event.title}}</a></h1>
    		<i>*{{event.startDate | date:'shortDate'}} through {{event.endDate | date:'shortDate'}}</i>
          <p>Location: {{event.location}}</p>
          <p>Area Airports: {{event.airports}}</p>
