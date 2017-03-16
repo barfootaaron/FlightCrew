@@ -2,7 +2,7 @@
 
 
 app.controller("FlightListCtrl", function($scope, FlightFactory, AuthFactory, EventFactory, SearchTermData, $routeParams, $location) {
-console.log("this is FlightListCtrl checking in");
+// console.log("this is FlightListCtrl checking in");
 
 // $scope.potato = false;
 

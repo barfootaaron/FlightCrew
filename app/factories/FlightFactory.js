@@ -1,12 +1,11 @@
 "use strict";
 
 app.factory("FlightFactory", ($q, $http, FBCreds, $sce, APICreds) => {
-console.log("FlightFactory checking in");
+// console.log("FlightFactory checking in");
 
    let getFlights = (user) => {
       let userFlights = [];
       return $q((resolve, reject) => {
-         console.log("user at getFlights", user);
          $http.get(`${FBCreds.databaseURL}/flights.json?orderBy="uid"&equalTo="${user}"`)
          .then((userFlightObject) => {
             let userFlightList = userFlightObject.data;
@@ -23,23 +22,51 @@ console.log("FlightFactory checking in");
    };
 
    let getNewFlightStats = (newFlight) => {
-   //    return $q((resolve, reject) => {
-      // return $http.jsonp(`https://api.flightstats.com/flex/flightstatus/rest/v2/jsonp/flight/status/UA/1187/arr/2017/3/16?appId=(classified)&appKey=(classified)&utc=false`);
-         return $http.jsonp(`${APICreds.apiURL}/${newFlight.airline}/${newFlight.number}/arr/${newFlight.year}/${newFlight.month}/${newFlight.day}?appId=${APICreds.appKey}&appKey=${APICreds.apiKey}&utc=false`,
-            JSON.stringify(newFlight));
-         };
-   //          let newFlightDataList = newFlightObject.data;
-   //          Object.keys(newFlightDataList).forEach((key) => { // CAN WE USE NESTED forEach() HERE? OTHERWISE REG for
-   //             newFlightDataList[key].id = key;
-   //             newFlightData.push(newFlightData[key]);
-   //             console.log(newFlightData);
-   //          });
-   //          resolve(newFlightData);
-   //       })
-   //       .catch((error) => {
-   //          reject(error);
-   //       });
-   //    });
+
+      return $q((resolve, reject) => {
+         return $http.jsonp(`${APICreds.apiURL}/${newFlight.airline}/${newFlight.flightNumber}/arr/${newFlight.arrYear}/${newFlight.arrMonth}/${newFlight.arrDay}?appId=${APICreds.appKey}&appKey=${APICreds.apiKey}&utc=false`)
+         .then((dataObj) => {
+            let newFlightDataArray = [];
+            let newFlightData = dataObj.data;
+            console.log('newFlightData', newFlightData);
+
+            Object.keys(newFlightData).forEach((key) => {
+               
+               newFlightDataArray = newFlightData.flightStatuses[0];
+
+               // newFlight.arrTime = newFlightDataArray.operationalTimes.estimatedGateArrival.dateLocal;
+               // newFlight.depTime = newFlightDataArray.operationalTimes.estimatedGateDeparture.dateLocal;
+               // newFlight.arrDate = newFlightDataArray.operationalTimes.estimatedGateArrival.dateLocal;
+
+               newFlight.arrTime = newFlightDataArray.operationalTimes.scheduledGateArrival.dateLocal;
+               newFlight.depTime = newFlightDataArray.operationalTimes.scheduledGateDeparture.dateLocal;
+               newFlight.arrDate = newFlightDataArray.operationalTimes.scheduledGateArrival.dateLocal;
+
+               newFlight.arrTerm = newFlightDataArray.airportResources.arrivalTerminal;
+               console.log("newFlight.arrTerm", newFlight.arrTerm);
+
+               newFlight.arrAirport = newFlightDataArray.arrivalAirportFsCode;
+               newFlight.depAirport = newFlightDataArray.departureAirportFsCode;
+               newFlight.flightStatsId = newFlightDataArray.flightId;
+
+            });
+
+
+         //    for (var i = 0; i < newFlightDataList.length; i++) {
+         //    var flightStatuses = newFlightDataList.flightStatuses;
+         //    console.log("flightStatuses", flightStatuses);
+         // }
+
+            resolve(newFlightDataArray);
+
+         })
+         .catch((error) => {
+            reject(error);
+         });
+      });
+   };
+         
+
 
    
 

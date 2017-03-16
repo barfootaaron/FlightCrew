@@ -3,10 +3,9 @@
 app.controller("FlightViewCtrl", function ($scope, $routeParams, FlightFactory, AuthFactory, $location) {
 	
 	// $scope.potato = true;
-	console.log("it's loading the right ctrl Flight View");
  
 	$scope.flights = [];
-	console.log($routeParams.flightId);
+	// console.log($routeParams.flightId);
 
 	let user = AuthFactory.getUser();
 
@@ -36,7 +35,7 @@ app.controller("FlightViewCtrl", function ($scope, $routeParams, FlightFactory, 
 	};
 
 	$scope.flightDelete = function(flightId) {
-      console.log("delete this flight", flightId);
+      // console.log("delete this flight", flightId);
       FlightFactory.deleteFlight(flightId)
       .then( function(response) {
          FlightFactory.getFlights(user).then( function(flightList) {
