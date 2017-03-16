@@ -11,11 +11,16 @@ app.controller("FlightNewCtrl", function($scope, FlightFactory, $location, AuthF
   $scope.newFlight = {
     eventId: "",
     uid: user,
+    day: "",
+    month: "",
+    year: "2017",
     date: "",
     airline: "",
     number: "",
     flightStatsId: "",
     depAirport: "",
+    depTime: "",
+    arrTime: "",
     arrAirport: "",
     arrTerm: "",
     numPax: "",
@@ -37,7 +42,7 @@ app.controller("FlightNewCtrl", function($scope, FlightFactory, $location, AuthF
       $location.url("/flights/list");
       });
     });
-    console.log("you added a new Flight:", $scope.newFlight);
+    console.log("you added a new Flight to be tracked:", $scope.newFlight);
     $scope.newFlightData = {};
   };
 

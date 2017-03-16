@@ -13,7 +13,6 @@ console.log("FlightFactory checking in");
             Object.keys(userFlightList).forEach((key) => {
                userFlightList[key].id = key;
                userFlights.push(userFlightList[key]);
-               console.log(userFlights);
             });
             resolve(userFlights);
          })
@@ -25,11 +24,12 @@ console.log("FlightFactory checking in");
 
    let getNewFlightStats = (newFlight) => {
    //    return $q((resolve, reject) => {
-      return $http.jsonp(`https://api.flightstats.com/flex/flightstatus/rest/v2/jsonp/flight/status/UA/1187/arr/2017/3/16?appId=fd780cfd&appKey=38443d1ac63bdc829305a1163d4a1683&utc=false`);
-         // return $http.get(`${APICreds.apiURL}/${newFlight.airline}/${newFlight.number}/arr/2017/3/16?appId=${APICreds.appKey}&appKey=${APICreds.apiKey}&utc=false`);
+      // return $http.jsonp(`https://api.flightstats.com/flex/flightstatus/rest/v2/jsonp/flight/status/UA/1187/arr/2017/3/16?appId=(classified)&appKey=(classified)&utc=false`);
+         return $http.jsonp(`${APICreds.apiURL}/${newFlight.airline}/${newFlight.number}/arr/${newFlight.year}/${newFlight.month}/${newFlight.day}?appId=${APICreds.appKey}&appKey=${APICreds.apiKey}&utc=false`,
+            JSON.stringify(newFlight));
          };
    //          let newFlightDataList = newFlightObject.data;
-   //          Object.keys(newFlightDataList).forEach((key) => {
+   //          Object.keys(newFlightDataList).forEach((key) => { // CAN WE USE NESTED forEach() HERE? OTHERWISE REG for
    //             newFlightDataList[key].id = key;
    //             newFlightData.push(newFlightData[key]);
    //             console.log(newFlightData);
@@ -41,11 +41,7 @@ console.log("FlightFactory checking in");
    //       });
    //    });
 
-
-
-   // EXAMPLE API CALL 
-   // $http.get(`https://api.flightstats.com/flex/flightstatus/rest/v2/json/flight/status/{flight.airline}/{flight.number}/arr/{flight.year"}/{flight.month}/{flight.day}?appId=fd780cfd&appKey=c2087fbd566e5d53067a8480f4e68492&utc=false"`)
-
+   
 
    let postNewFlight = (newFlight) => {
       return $q((resolve, reject) => {
@@ -88,7 +84,6 @@ console.log("FlightFactory checking in");
 
    let updateFlight = (flightId, editedFlight) => {
       //properties with leading $$ characters will be stripped since Angular uses that notaton internally
-   // console.log("angularJSON", angular.toJson(editedFlight));
    console.log("JSON.stringify", JSON.stringify(editedFlight));
       return $q(function(resolve, reject) {
          //pass the item we're adjusting and then the actual item
@@ -111,7 +106,7 @@ console.log("FlightFactory checking in");
          $http.get(`${FBCreds.databaseURL}/flights.json?orderBy="eventId"&equalTo="${eventId}"`)
          .then((eventFlightObject) => {
             let eventFlightList = eventFlightObject.data;
-            console.log('Board Pin List: ', eventFlightList);
+            console.log('Event Flight List: ', eventFlightList);
             Object.keys(eventFlightList).forEach((key) => {
                eventFlightList[key].id = key;
                eventFlights.push(eventFlightList[key]);

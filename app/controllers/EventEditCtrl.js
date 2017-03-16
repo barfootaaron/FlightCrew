@@ -10,7 +10,7 @@ app.controller("EventEditCtrl", function($scope, $location, $routeParams, EventF
 
   EventFactory.getSingleEvent($routeParams.eventId)
   .then( function successCallback(response){
-     console.log("getSingleSongresponse", response);
+     console.log("getSingleEventresponse", response);
       $scope.newEvent = response;
   });
     

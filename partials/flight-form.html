@@ -3,8 +3,14 @@
    <form class="flight-form col s12">
       <div id="firstRow" class="row">
          <input-field class="col s6">
-            <label for="flight_date">Flight date</label>
-            <input id="flight_date" type="date" class="datepicker" ng-model="newFlight.date" min="2017-03-15">
+            <!-- <label for="flight_date">Flight date</label>
+            <input id="flight_date" type="date" class="datepicker" ng-model="newFlight.date" min="2017-03-15"> -->
+            <label class="flightFormLabel" for="flight_month">Month of Flight <i> (enter value 1-12)</i></label>
+            <input type="number" name="flight_month" ng-model="newFlight.month">
+         </input-field>
+         <input-field class="col s6">
+            <label class="flightFormLabel" for="flight_month">Day of Flight <i> (enter value 1-31)</i></label>
+            <input type="number" name="flight_month" ng-model="newFlight.day">
          </input-field>
          
         <!--  <div class="input-field col s6">
@@ -17,55 +23,54 @@
 
       <div class="row">
          <input-field class="col s6">
-            <label for="airline">Airline<i>- Please use 2 digit airline code (ex: AA for American Airlines)</i></label>
+            <label class="flightFormLabel" for="airline">Airline<i> (enter 2 digit airline code - ex: AA for American Airlines)</i></label>
             <input id="airline" type="text" class="form-control" ng-model="newFlight.airline" required>
-            <a target="_blank" href="http://www.airfarewatchdog.com/pages/3799702/airline-letter-codes/"><i>See a full list of airline codes here</i></a>    
+            <a class="flightFormNoteLink" target="_blank" href="http://www.airfarewatchdog.com/pages/3799702/airline-letter-codes/"><i>See a full list of airline codes here</i></a>    
          </input-field>
          <input-field class="col s6">
-            <label for="flight_num">Flight Number</label>
+            <label class="flightFormLabel" for="flight_num">Flight Number</label>
             <input id="flight_num" type="number" class="form-control" ng-model="newFlight.number" required>
          </input-field>
       </div>
 
       <div class="row">
          <input-field class="col s6">
-            <label for="dep_airport">Departing Airport<i>- Please use 3 digit airport code (ex: ATL for Atlanta)</i></label>
+            <label class="flightFormLabel" for="dep_airport">Departing Airport<i> (enter 3 digit airport code - ex: ATL for Atlanta)</i></label>
             <input id="dep_airport" type="text" class="form-control" ng-model="newFlight.depAirport" required>
-            <a target="_blank" href="http://www.airportcodes.org/"><i>See a full list of airport codes here</i></a>
-         </input-field>
+            <a class="flightFormNoteLink" target="_blank" href="http://www.airportcodes.org/"><i>See a full list of airport codes here</i></a>
+         </input-field>  
          <input-field class="col s6">
-            <label for="arr_airport">Arrival Airport<i>- Please use 3 digit airport code (ex: ATL for Atlanta)</i></label>
+            <label class="flightFormLabel" for="arr_airport">Arrival Airport<i> (enter 3 digit airport code - ex: ATL for Atlanta)</i></label>
             <input id="arr_airport" type="text" ng-model="newFlight.arrAirport" required>
-            <a target="_blank" href="http://www.airportcodes.org/"><i>See a full list of airport codes here</i></a>
          </input-field>
       </div>   
-         
-      <div class="row">
-         <input-field class="col s6">
-            <label for="num_pax">Total Number of passengers</label>
-            <input id="num_pax" type="number" ng-model="newFlight.numPax" required>
-         </input-field>
-      </div>
 
       <div class="row">
       <input-field class="col s6">
-            <label for="first_contact_name">Primary Contact Name</label>
+            <label class="flightFormLabel" for="first_contact_name">Primary Contact Name</label>
             <input id="first_contact_name" type="text" ng-model="newFlight.firstContactName" required>
       </input-field>
       <input-field class="col s6">      
-            <label for="first_contact_num">Primary Contact Cell Phone #</label>
+            <label class="flightFormLabel" for="first_contact_num">Primary Contact Cell Phone #</label>
             <input id="first_contact_num" type="tel" ng-model="newFlight.firstContactNum" required>
       </input-field>   
       </div>
+
        <input-field class="col s6">
-         <label for="second_contact_name">Secondary Contact Name</label>
+         <label class="flightFormLabel" for="second_contact_name">Secondary Contact Name</label>
          <input id="second_contact_name" type="text" class="form-control" ng-model="newFlight.secondContactName" required>
       </input-field>
       <input-field class="col s6">   
-         <label for="second_contact_num">Secondary Contact Cell Phone #</label>
+         <label class="flightFormLabel" for="second_contact_num">Secondary Contact Cell Phone #</label>
          <input id="second_contact_num" type="tel" ng-model="newFlight.secondContactNum" required>
       </input-field>
 
+      <div class="row">
+         <input-field class="col s6">
+            <label class="flightFormLabel" for="num_pax">Total Number of passengers on flight</label>
+            <input id="num_pax" type="number" ng-model="newFlight.numPax" required>
+         </input-field>
+      </div>
                      
       <button id="flightFormBtn" class="btn waves-effect waves-light" type="submit" name="action" ng-click="addNewFlight()">{{btnText}}
          <i class="material-icons right">send</i>

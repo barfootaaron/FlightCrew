@@ -10,6 +10,10 @@ body {
 	margin-top: 9px;
 }
 
+.logoContainer a {
+	color: #bbdefb;
+}
+
 #navInputBtn {
 	margin-top: 8px;
 }
@@ -128,6 +132,11 @@ hr {
 	box-shadow: 3px 3px 3px;
 }
 
+.pax-card-info p {
+	display: inline;
+	font-size: 1.2em;
+}
+
 .flight-card h1 {
 	font-size: 2.5em;
 	margin-bottom: 10px;
@@ -195,6 +204,21 @@ hr {
 }
 
 // FLIGHT FORM
+
+.flightFormLabel {
+	font-size: 17px;
+	color: #546e7a;
+}
+
+.flightFormLabel i {
+	font-size: 11px;
+	color: #90a4ae;
+}
+ 
+.flightFormNote i {
+	font-size: 11px;
+	color: lightgrey;
+} 
 
 #flight-form {
 	margin-left: 5%;
