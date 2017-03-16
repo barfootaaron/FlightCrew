@@ -6,11 +6,11 @@
             <!-- <label for="flight_date">Flight date</label>
             <input id="flight_date" type="date" class="datepicker" ng-model="newFlight.date" min="2017-03-15"> -->
             <label class="flightFormLabel" for="flight_month">Month of Flight <i> (enter value 1-12)</i></label>
-            <input type="number" name="flight_month" ng-model="newFlight.month">
+            <input type="number" name="flight_month" ng-model="newFlight.arrMonth">
          </input-field>
          <input-field class="col s6">
             <label class="flightFormLabel" for="flight_month">Day of Flight <i> (enter value 1-31)</i></label>
-            <input type="number" name="flight_month" ng-model="newFlight.day">
+            <input type="number" name="flight_month" ng-model="newFlight.arrDay">
          </input-field>
          
         <!--  <div class="input-field col s6">
@@ -29,7 +29,7 @@
          </input-field>
          <input-field class="col s6">
             <label class="flightFormLabel" for="flight_num">Flight Number</label>
-            <input id="flight_num" type="number" class="form-control" ng-model="newFlight.number" required>
+            <input id="flight_num" type="number" class="form-control" ng-model="newFlight.flightNumber" required>
          </input-field>
       </div>
 

@@ -14,18 +14,16 @@
 <div id="flightList-container">
 	<div class="flight-card row" ng-repeat="flight in flights | filter:searchText.search">
 		<ul class="flight-card col s12">
-			<h1><a ng-href="#!/flights/{{flight.id}}">{{flight.airline}} Flight # {{flight.number}} |
+			<h1><a ng-href="#!/flights/{{flight.id}}">{{flight.airline}} Flight # {{flight.flightNumber}} |
 			{{flight.depAirport}}<i class="material-icons">arrow_forward</i>{{flight.arrAirport}}</a></h1>
-			<h1>{{flight.date | date:'fullDate'}}</h1>
+			<h1>{{flight.arrDate | date:'fullDate'}}</h1>
 
 			<i class="passengerHeading">*Departs from {{flight.depAirport}} at {{flight.depTime | date:'shortTime'}}</i>
 			<i class="passengerHeading">	|	</i>
 			<i class="passengerHeading">Arrives to {{flight.arrAirport}} at {{flight.arrTime | date:'shortTime'}}</i><br>
-			<hr>
 			<b class="passengerHeading">Scheduled Arrival Terminal: {{flight.arrTerm}}</b><br>
-			<b class="passengerHeading">Scheduled Arrival Gate: {{flight.arrGate}}</b>
-			
 			<hr>
+
 			<div class="pax-card-info row">
 				<b class="passengerHeading">Total Number of Passengers: {{flight.numPax}}</b><br>
 				<p>Primary Passenger Contact: {{flight.firstContactName}} 	-	<a href="tel:+1{{flight.firstContactNum}}"> <div class="material-icons">call</div>  # {{flight.firstContactNum}}</a></p><br>

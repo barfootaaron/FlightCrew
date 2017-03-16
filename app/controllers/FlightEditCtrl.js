@@ -17,7 +17,7 @@ app.controller("FlightEditCtrl", function($scope, $location, $routeParams, Fligh
   $scope.addNewFlight = function(){
     FlightFactory.updateFlight($routeParams.flightId, $scope.newFlight)
     .then( function successCallback(response) {
-      console.log(response);
+      console.log('response', response);
       $location.url("/flights/list");
     });
   };

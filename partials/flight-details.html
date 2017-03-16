@@ -1,6 +1,6 @@
     <div id="flightDetailsContainer">
         <div id="flightDetailsHeader">
-            <h3>{{selectedFlight.airline}} Flight # {{selectedFlight.number}}  on {{selectedFlight.date | date:'fullDate'}}</h3>
+            <h3>{{selectedFlight.airline}} Flight # {{selectedFlight.flightNumber}}  on {{selectedFlight.arrDate | date:'fullDate'}}</h3>
             <br>
             <h3>{{selectedFlight.depAirport}}<i class="material-icons">arrow_forward</i>{{selectedFlight.arrAirport}}          
         </div>
@@ -9,6 +9,7 @@
         <ul class="list-group">
             <h5><strong>Estimated Departure Time:</strong> {{selectedFlight.depTime  | date:'shortTime'}}</h5>
             <h5><strong>Estimated Arrival Time:</strong> {{selectedFlight.arrTime  | date:'shortTime'}}</h5>
+            <h5><strong>Scheduled Arrival Terminal: {{selectedFlight.arrTerm}}</strong></h5><br>
             <a>TODO: Link to arrival airport map</a>
             <hr>
             <h5><strong>Total Number of Passengers:</strong> {{selectedFlight.numPax}}</h5>

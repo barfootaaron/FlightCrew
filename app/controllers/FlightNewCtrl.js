@@ -9,14 +9,13 @@ app.controller("FlightNewCtrl", function($scope, FlightFactory, $location, AuthF
   $scope.title = "Add a New Flight to track";
   $scope.btnText = "Add New Flight";
   $scope.newFlight = {
-    eventId: "",
     uid: user,
-    day: "",
-    month: "",
-    year: "2017",
-    date: "",
+    arrDay: "",
+    arrMonth: "",
+    arrYear: "2017",
+    arrDate: "",
     airline: "",
-    number: "",
+    flightNumber: "",
     flightStatsId: "",
     depAirport: "",
     depTime: "",
@@ -32,15 +31,15 @@ app.controller("FlightNewCtrl", function($scope, FlightFactory, $location, AuthF
 
   $scope.addNewFlight = function() {
     console.log($scope.newFlight);
+
     FlightFactory.getNewFlightStats($scope.newFlight)
-    .then(function(flightData) {
-      $scope.newFlight.data = flightData.data;
-      console.log('response.data', flightData.data);
+      .then(function(flightData) {
+ 
 
     FlightFactory.postNewFlight($scope.newFlight)
-    .then(function(response) {
-      $location.url("/flights/list");
-      });
+      .then(function(flightData) {
+        $location.url("/flights/list");
+        });
     });
     console.log("you added a new Flight to be tracked:", $scope.newFlight);
     $scope.newFlightData = {};
