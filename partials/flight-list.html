@@ -20,12 +20,16 @@
 
 			<i class="passengerHeading">*Departs from {{flight.depAirport}} at {{flight.depTime | date:'shortTime'}}</i>
 			<i class="passengerHeading">	|	</i>
-			<i class="passengerHeading">Arrives to {{flight.arrAirport}} at {{flight.arrTime | date:'shortTime'}}</i>
+			<i class="passengerHeading">Arrives to {{flight.arrAirport}} at {{flight.arrTime | date:'shortTime'}}</i><br>
+			<hr>
+			<b class="passengerHeading">Scheduled Arrival Terminal: {{flight.arrTerm}}</b><br>
+			<b class="passengerHeading">Scheduled Arrival Gate: {{flight.arrGate}}</b>
+			
 			<hr>
 			<div class="pax-card-info row">
-				<b class="passengerHeading">Total Number of Passengers: {{flight.numPax}}</b>
-				<li>Primary Contact: {{flight.firstContactName}} 	-	<a href="tel:+1{{flight.firstContactNum}}"> <div class="material-icons">call</div>  # {{flight.firstContactNum}}</a></li>
-				<li>Secondary Contact: {{flight.secondContactName}} 	-	<a href="tel:+1{{flight.secondContactNum}}"> <div class="material-icons">call</div>	  # {{flight.secondContactNum}}</a></li>
+				<b class="passengerHeading">Total Number of Passengers: {{flight.numPax}}</b><br>
+				<p>Primary Passenger Contact: {{flight.firstContactName}} 	-	<a href="tel:+1{{flight.firstContactNum}}"> <div class="material-icons">call</div>  # {{flight.firstContactNum}}</a></p><br>
+				<p>Secondary Passenger Contact: {{flight.secondContactName}} 	-	<a href="tel:+1{{flight.secondContactNum}}"> <div class="material-icons">call</div>	  # {{flight.secondContactNum}}</a></p>
 			</div>
  		
  		</ul>

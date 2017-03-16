@@ -10,7 +10,7 @@ app.controller("FlightEditCtrl", function($scope, $location, $routeParams, Fligh
 
   FlightFactory.getSingleFlight($routeParams.flightId)
   .then( function successCallback(response){
-     console.log("getSingleSongresponse", response);
+     console.log("getSingleFlightresponse", response);
       $scope.newFlight = response;
   });
     

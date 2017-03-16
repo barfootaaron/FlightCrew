@@ -4,19 +4,25 @@ app.controller("FlightNewCtrl", function($scope, FlightFactory, $location, AuthF
 
   let user = AuthFactory.getUser();
   let profileName = AuthFactory.getName();
-  console.log('User Name Display Name is: ', profileName);
+  // console.log('User Name Display Name is: ', profileName);
 
   $scope.title = "Add a New Flight to track";
   $scope.btnText = "Add New Flight";
   $scope.newFlight = {
     eventId: "",
     uid: user,
+    day: "",
+    month: "",
+    year: "2017",
     date: "",
     airline: "",
-    flightNumber: "",
+    number: "",
     flightStatsId: "",
     depAirport: "",
+    depTime: "",
+    arrTime: "",
     arrAirport: "",
+    arrTerm: "",
     numPax: "",
     firstContactName: "",
     firstContactNum: "",
@@ -24,15 +30,20 @@ app.controller("FlightNewCtrl", function($scope, FlightFactory, $location, AuthF
     secondContactNum: ""
   };
 
-
   $scope.addNewFlight = function() {
-    console.log("add new flight");
+    console.log($scope.newFlight);
+    FlightFactory.getNewFlightStats($scope.newFlight)
+    .then(function(flightData) {
+      $scope.newFlight.data = flightData.data;
+      console.log('response.data', flightData.data);
+
     FlightFactory.postNewFlight($scope.newFlight)
     .then(function(response) {
       $location.url("/flights/list");
+      });
     });
-    console.log("you added a new Flight:", $scope.newFlight);
-    $scope.newFlight = {};
+    console.log("you added a new Flight to be tracked:", $scope.newFlight);
+    $scope.newFlightData = {};
   };
 
  //  EventFactory.getEventList(user)

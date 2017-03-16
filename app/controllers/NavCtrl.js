@@ -4,9 +4,9 @@ app.controller("NavCtrl", function($scope, $window, SearchTermData) {
 	$scope.searchText = SearchTermData;
 	$scope.isLoggedIn = false;
 
-    $( document ).ready(function(){
-  $(".button-collapse").sideNav();
-});
+//     $( document ).ready(function(){
+//   $(".button-collapse").sideNav();
+// });
 
 	//addd a listener for login/logout to show/hide nav items
 	firebase.auth().onAuthStateChanged( function(user) {

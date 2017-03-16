@@ -1,26 +1,7 @@
 "use strict";
 
-app.factory("FlightFactory", ($q, $http, FBCreds) => {
-console.log("hello from FlightFactory");
-
-   // let getAllFlights = () => {
-   //    let allFlights = [];
-   //    return $q((resolve, reject) => {
-   //       $http.get(`${FBCreds.databaseURL}/flights.json`)
-   //       .then((flightObject) => {
-   //          let flightList = flightObject.data;
-   //          Object.keys(flightList).forEach((key) => {
-   //             flightList[key].id = key;
-   //             allFlights.push(flightList[key]);
-   //          });
-   //          resolve(allFlights);
-   //       })
-   //       .catch((error) => {
-   //          reject(error);
-   //       });
-   //    });
-
-   // };
+app.factory("FlightFactory", ($q, $http, FBCreds, $sce, APICreds) => {
+console.log("FlightFactory checking in");
 
    let getFlights = (user) => {
       let userFlights = [];
@@ -32,17 +13,35 @@ console.log("hello from FlightFactory");
             Object.keys(userFlightList).forEach((key) => {
                userFlightList[key].id = key;
                userFlights.push(userFlightList[key]);
-               console.log(userFlights);
             });
             resolve(userFlights);
          })
-         //success and error are used in previous versions of angular. now then and catch
          .catch((error) => {
             reject(error);
          });
       });
    };
 
+   let getNewFlightStats = (newFlight) => {
+   //    return $q((resolve, reject) => {
+      // return $http.jsonp(`https://api.flightstats.com/flex/flightstatus/rest/v2/jsonp/flight/status/UA/1187/arr/2017/3/16?appId=(classified)&appKey=(classified)&utc=false`);
+         return $http.jsonp(`${APICreds.apiURL}/${newFlight.airline}/${newFlight.number}/arr/${newFlight.year}/${newFlight.month}/${newFlight.day}?appId=${APICreds.appKey}&appKey=${APICreds.apiKey}&utc=false`,
+            JSON.stringify(newFlight));
+         };
+   //          let newFlightDataList = newFlightObject.data;
+   //          Object.keys(newFlightDataList).forEach((key) => { // CAN WE USE NESTED forEach() HERE? OTHERWISE REG for
+   //             newFlightDataList[key].id = key;
+   //             newFlightData.push(newFlightData[key]);
+   //             console.log(newFlightData);
+   //          });
+   //          resolve(newFlightData);
+   //       })
+   //       .catch((error) => {
+   //          reject(error);
+   //       });
+   //    });
+
+   
 
    let postNewFlight = (newFlight) => {
       return $q((resolve, reject) => {
@@ -85,7 +84,6 @@ console.log("hello from FlightFactory");
 
    let updateFlight = (flightId, editedFlight) => {
       //properties with leading $$ characters will be stripped since Angular uses that notaton internally
-   console.log("angularJSON", angular.toJson(editedFlight));
    console.log("JSON.stringify", JSON.stringify(editedFlight));
       return $q(function(resolve, reject) {
          //pass the item we're adjusting and then the actual item
@@ -101,32 +99,30 @@ console.log("hello from FlightFactory");
       });
    };
 
-   // let getBoardPins = (boardId) => {
-   //    let boardPins = [];
-   //    return $q((resolve, reject) => {
-   //       console.log("board at getPins", boardId);
-   //       $http.get(`${FBCreds.databaseURL}/pins.json?orderBy="boardId"&equalTo="${boardId}"`)
-   //       .then((boardPinObject) => {
-   //          let boardPinList = boardPinObject.data;
-   //          console.log('Board Pin List: ', boardPinList);
-   //          Object.keys(boardPinList).forEach((key) => {
-   //             boardPinList[key].id = key;
-   //             boardPins.push(boardPinList[key]);
-   //             console.log(boardPins);
-   //          });
-   //          resolve(boardPins);
-   //       })
-         //success and error are used in previous versions of angular. now then and catch
-   //       .catch((error) => {
-   //          reject(error);
-   //       });
-   //    });
-   // };
-
-   //return so that they can become part of ItemStorage
+   let getEventFlights = (eventId) => {
+      let eventFlights = [];
+      return $q((resolve, reject) => {
+         console.log("event at getFlights", eventId);
+         $http.get(`${FBCreds.databaseURL}/flights.json?orderBy="eventId"&equalTo="${eventId}"`)
+         .then((eventFlightObject) => {
+            let eventFlightList = eventFlightObject.data;
+            console.log('Event Flight List: ', eventFlightList);
+            Object.keys(eventFlightList).forEach((key) => {
+               eventFlightList[key].id = key;
+               eventFlights.push(eventFlightList[key]);
+               console.log(eventFlights);
+            });
+            resolve(eventFlights);
+         })
+         .catch((error) => {
+            reject(error);
+         });
+      });
+   };
 
 
-   return {getFlights, postNewFlight, deleteFlight, getSingleFlight, updateFlight}; //getBoardPins};
+
+   return {getFlights, postNewFlight, deleteFlight, getSingleFlight, updateFlight, getEventFlights, getNewFlightStats};
 
 
    });

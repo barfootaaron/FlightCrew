@@ -1,8 +1,8 @@
 "use strict";
 
-app.controller('EventListCtrl', function($scope, $routeParams, EventFactory, AuthFactory){
+app.controller('EventListCtrl', function($scope, $routeParams, EventFactory, AuthFactory) {
 	$scope.boards = [];
-	console.log($routeParams.title);
+	// console.log($routeParams.title);
 
 	let user = AuthFactory.getUser();
 	EventFactory.getEvents(user)

@@ -3,7 +3,7 @@
 app.controller("FlightViewCtrl", function ($scope, $routeParams, FlightFactory, AuthFactory, $location) {
 	
 	// $scope.potato = true;
-	// console.log("it's loading the right ctrl pinview");
+	console.log("it's loading the right ctrl Flight View");
  
 	$scope.flights = [];
 	console.log($routeParams.flightId);
