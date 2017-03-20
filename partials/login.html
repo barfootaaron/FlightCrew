@@ -1,24 +1,20 @@
 <div class="row">
   <div id="login-pg" class="col s12 text-right">
     <section id="auth-form" class="auth-form">
-      <h4>Login/Register</h4>
+      <h3 id="loginPgHeader">Welcome to FlightCrew</h3>
+      <h5 id="loginPgHeader">Please Login/Register</h5>
         
       <div class="row">
-        <div class="col s3"></div>
-        <div class="input-field col s6">
-          <input id="email" class="validate" type="email" ng-model="account.email">
-          <label for="email">Email</label>
-        </div>
-        <div class="col s3"></div>
-      </div>
-      <br>
-      <div class="row">  
-        <div class="col s3"></div>
-        <div class="input-field col s6">
-          <input id="password" class="validate" type="password" ng-model="account.password">
+          <div class="col s2"></div>
+          <div class="input-field loginPgInput col s4">
+            <input id="email" class="validate loginPgInput" type="email" ng-model="account.email">
+            <label for="email">Email</label>
+          </div>
+        <div class="input-field loginPgInput col s4">
+          <input id="password" class="validate loginPgInput" type="password" ng-model="account.password">
           <label for="password">Password</label>
         </div>
-        <div class="col s3"></div>
+        <div class="col s2"></div>
       </div>    
         
       <div>

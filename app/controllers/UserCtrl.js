@@ -12,7 +12,7 @@ app.controller("UserCtrl", function($scope, $window, AuthFactory, UserFactory, $
 
 
     let logout = () => {
-        console.log("logout clicked");
+        console.log("logout");
         AuthFactory.logoutUser()
         .then(function(data){
             console.log("logged out?", data);

@@ -10,7 +10,7 @@ let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
     .then ( (userExists) => {
     console.log("userExists", userExists);
         if (userExists){
-      console.log("You is Authenticated, you good.");
+      console.log("User Authenticated, you good.");
             resolve();
         } else {
       console.log("Authentication rejected, get tf out.");

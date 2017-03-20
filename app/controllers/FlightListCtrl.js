@@ -14,6 +14,7 @@ app.controller("FlightListCtrl", function($scope, FlightFactory, AuthFactory, Ev
 
 	FlightFactory.getFlights(user)
 	.then( function(flightList) {
+      console.log('flightList', flightList);
 		$scope.flights = flightList;
 	});
 
