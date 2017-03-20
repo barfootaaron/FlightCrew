@@ -28,6 +28,10 @@ body {
 
 // LOGIN PARTIAL
 
+#loginPgHeader {
+	margin-bottom: 50px;
+}
+
 #loginGoogle {
 	padding: 12px;
 	width: 165px;
@@ -59,17 +63,25 @@ body {
 }
 
 #login-pg {
-	background-color: #f5f5f5;
+	background-color: #e3f2fd;
+	color: #546e7a;
 	display: block;
 	text-align: center;
 	width: 90%;
-	height: 75%;
+	height: 90%;
 	text-align: center;
 	display: block;
-	border: 1px solid #f5f5f5;
-	border-radius: 5px;
+	// border: 1px solid #f5f5f5;
+	border-radius: 3px;
 	margin: 30px 5% auto 5%;
 	padding: 20px;
+}
+
+.loginPgInput {
+	color: #546e7a;
+	display: inline;
+	text-align: left;
+
 }
 
 // NG-VIEW
@@ -114,10 +126,18 @@ hr {
 }
 
 .search-input {
-	margin: 3em 5em 1.5em 5em;
+	margin: 3em 10em 1.5em 10em;
 	background-color: #e3f2fd;
 	border-radius: 2px;
 	box-shadow: 2px 2px 2px;
+}
+
+.flightListBtnDiv {
+	margin-top: 10px;
+}
+
+.flightListBtnDiv a {
+	margin-right: 7px;
 }
 
 // FLIGHT CARD
@@ -155,7 +175,8 @@ hr {
 }
 
 .flight-card:hover {
-	background-color: #e0e0e0;
+	background-color: #e0f7fa;
+	box-shadow: 5px 5px 5px;
 }
 
 #flightList-container {
@@ -168,7 +189,29 @@ hr {
 	float: right;
 }
 
+.infoListBtn {
+	color: white;
+	background-color: #4db6ac;
+}
+
+.updateStatusBtn {
+	color: white;
+	background-color: #01579b;
+}
+
+.updateStatusBtn:hover {
+	background-color: grey;
+}
+
 // FLIGHT DETAILS
+
+#flightDetailBtnDiv {
+	margin-top: 15px;
+}
+
+#flightDetailBtnDiv a {
+	margin-right: 10px;
+}
 
 .detail-icons {
 	background-color: black;
@@ -200,7 +243,10 @@ hr {
 	color: #546e7a;
 	font-size: 2.5em;
 	margin: 0 auto 0 .4em;
+}
 
+.fightDetailHeaderIcon {
+	margin-top: 10px;
 }
 
 // FLIGHT FORM
@@ -242,10 +288,15 @@ hr {
 	font-size: 1.5em;
 }
 
+#flightFormHeader {
+	margin-bottom: 25px;
+}
+
 #flightFormBtn {
 	margin-bottom: 2em !important;
 	margin-left: 2em;
 }
+
 
 // EVENT LIST
 

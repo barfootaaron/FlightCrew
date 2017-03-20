@@ -1,19 +1,22 @@
-
+<!-- START SEARCH BAR -->
 <div class="search-input" class="col s10">	
     <div class="nav-wrapper">
       <form>
-        <div class="input-field">
-          <input id="search" type="search" ng-model="searchText.search">
-          <label for="search"><i class="material-icons">search</i></label>
+        <div class="input-field"><!--  ng-touched="false"> -->
+          <input id="search" type="search" ng-model="searchText.search" placeholder="Search flights">
+          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
         </div>
       </form>
    	</div>
 	</div>
 </div>
+<!-- END SEARCH BAR -->
+
 
 <div id="flightList-container">
-	<div class="flight-card row" ng-repeat="flight in flights | filter:searchText.search">
+	<div class="flight-card row" ng-repeat="flight in flights | orderBy:'arrTime' | filter:searchText.search">
 		<ul class="flight-card col s12">
+
 			<h1><a ng-href="#!/flights/{{flight.id}}">{{flight.airline}} Flight # {{flight.flightNumber}} |
 			{{flight.depAirport}}<i class="material-icons">arrow_forward</i>{{flight.arrAirport}}</a></h1>
 			<h1>{{flight.arrDate | date:'fullDate'}}</h1>
@@ -21,14 +24,27 @@
 			<i class="passengerHeading">*Departs from {{flight.depAirport}} at {{flight.depTime | date:'shortTime'}}</i>
 			<i class="passengerHeading">	|	</i>
 			<i class="passengerHeading">Arrives to {{flight.arrAirport}} at {{flight.arrTime | date:'shortTime'}}</i><br>
-			<b class="passengerHeading">Scheduled Arrival Terminal: {{flight.arrTerm}}</b><br>
 			<hr>
+			<b class="passengerHeading">Arrival Terminal at {{flight.arrAirport}}: {{flight.arrTerm}}</b><br>
 
 			<div class="pax-card-info row">
 				<b class="passengerHeading">Total Number of Passengers: {{flight.numPax}}</b><br>
-				<p>Primary Passenger Contact: {{flight.firstContactName}} 	-	<a href="tel:+1{{flight.firstContactNum}}"> <div class="material-icons">call</div>  # {{flight.firstContactNum}}</a></p><br>
-				<p>Secondary Passenger Contact: {{flight.secondContactName}} 	-	<a href="tel:+1{{flight.secondContactNum}}"> <div class="material-icons">call</div>	  # {{flight.secondContactNum}}</a></p>
+				
+				<p>Primary Passenger Contact: {{flight.firstContactName}} 	-	<a href="tel:+1{{flight.firstContactNum}}"> <i class="material-icons">call</i>  # {{flight.firstContactNum}}</a></p><br>
+				
+				<p>Secondary Passenger Contact: {{flight.secondContactName}} 	-	<a href="tel:+1{{flight.secondContactNum}}"> <i class="material-icons">call</i>	  # {{flight.secondContactNum}}</a></p>
+			
 			</div>
+			<hr>
+			
+			<div class="flightListBtnDiv">
+				<a class="btn-floating infoListBtn btn-large waves-effect waves-light" 	ng-href="#!/flights/{{flight.id}}">
+	        		<i class="material-icons infoListBtn btn-floating btn-large waves-effect waves-light teal">view_module</i>
+	    		</a>
+	    		<a class="btn-floating infoListBtn btn-large waves-effect waves-light" 	ng-href="#!/flights/{{flight.id}}">
+	        		<i class="material-icons updateStatusBtn btn-floating btn-large waves-effect waves-light">track_changes</i>
+	    		</a>
+    		</div>
  		
  		</ul>
 		

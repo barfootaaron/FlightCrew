@@ -7,11 +7,13 @@ app.factory("FlightFactory", ($q, $http, FBCreds, $sce, APICreds) => {
       let userFlights = [];
       return $q((resolve, reject) => {
          $http.get(`${FBCreds.databaseURL}/flights.json?orderBy="uid"&equalTo="${user}"`)
-         .then((userFlightObject) => {
-            let userFlightList = userFlightObject.data;
+         .then((userFlightObj) => {
+            let userFlightList = userFlightObj.data;
+            console.log('userFlightList', userFlightList);
             Object.keys(userFlightList).forEach((key) => {
                userFlightList[key].id = key;
                userFlights.push(userFlightList[key]);
+                  // SORT BY DATE HERE...
             });
             resolve(userFlights);
          })
@@ -22,42 +24,36 @@ app.factory("FlightFactory", ($q, $http, FBCreds, $sce, APICreds) => {
    };
 
    let getNewFlightStats = (newFlight) => {
-
       return $q((resolve, reject) => {
          return $http.jsonp(`${APICreds.apiURL}/${newFlight.airline}/${newFlight.flightNumber}/arr/${newFlight.arrYear}/${newFlight.arrMonth}/${newFlight.arrDay}?appId=${APICreds.appKey}&appKey=${APICreds.apiKey}&utc=false`)
          .then((dataObj) => {
-            let newFlightDataArray = [];
+            let newFlightStatusArray = [];
             let newFlightData = dataObj.data;
             console.log('newFlightData', newFlightData);
 
             Object.keys(newFlightData).forEach((key) => {
-               
-               newFlightDataArray = newFlightData.flightStatuses[0];
+               newFlightStatusArray = newFlightData.flightStatuses[0];
 
+// Some DL flights weren't returning a value for estimated dep/arr so I am using scheduled arr/dep for now
+// But ideally app will show estimatead depTime/arrTime and arrTerm for most accurate results
                // newFlight.arrTime = newFlightDataArray.operationalTimes.estimatedGateArrival.dateLocal;
                // newFlight.depTime = newFlightDataArray.operationalTimes.estimatedGateDeparture.dateLocal;
                // newFlight.arrDate = newFlightDataArray.operationalTimes.estimatedGateArrival.dateLocal;
 
-               newFlight.arrTime = newFlightDataArray.operationalTimes.scheduledGateArrival.dateLocal;
-               newFlight.depTime = newFlightDataArray.operationalTimes.scheduledGateDeparture.dateLocal;
-               newFlight.arrDate = newFlightDataArray.operationalTimes.scheduledGateArrival.dateLocal;
+               newFlight.arrTime = newFlightStatusArray.operationalTimes.scheduledGateArrival.dateLocal;
+               newFlight.depTime = newFlightStatusArray.operationalTimes.scheduledGateDeparture.dateLocal;
+               newFlight.arrDate = newFlightStatusArray.operationalTimes.scheduledGateArrival.dateLocal;
 
-               newFlight.arrTerm = newFlightDataArray.airportResources.arrivalTerminal;
+               newFlight.arrTerm = newFlightStatusArray.airportResources.arrivalTerminal;
                console.log("newFlight.arrTerm", newFlight.arrTerm);
 
-               newFlight.arrAirport = newFlightDataArray.arrivalAirportFsCode;
-               newFlight.depAirport = newFlightDataArray.departureAirportFsCode;
-               newFlight.flightStatsId = newFlightDataArray.flightId;
+               newFlight.arrAirport = newFlightStatusArray.arrivalAirportFsCode;
+               newFlight.depAirport = newFlightStatusArray.departureAirportFsCode;
+               newFlight.flightStatsId = newFlightStatusArray.flightId;
 
             });
 
-
-         //    for (var i = 0; i < newFlightDataList.length; i++) {
-         //    var flightStatuses = newFlightDataList.flightStatuses;
-         //    console.log("flightStatuses", flightStatuses);
-         // }
-
-            resolve(newFlightDataArray);
+            resolve(newFlightStatusArray);
 
          })
          .catch((error) => {
@@ -109,8 +105,11 @@ app.factory("FlightFactory", ($q, $http, FBCreds, $sce, APICreds) => {
       });
    };
 
-   let updateFlight = (flightId, editedFlight) => {
-      //properties with leading $$ characters will be stripped since Angular uses that notaton internally
+
+
+
+// updateFlightInFirebase TAKES UPDATED API DATA AND POSTS IT TO FIREBASE
+   let updateFlightInFirebase = (flightId, editedFlight) => {
    console.log("JSON.stringify", JSON.stringify(editedFlight));
       return $q(function(resolve, reject) {
          //pass the item we're adjusting and then the actual item
@@ -134,6 +133,7 @@ app.factory("FlightFactory", ($q, $http, FBCreds, $sce, APICreds) => {
          .then((eventFlightObject) => {
             let eventFlightList = eventFlightObject.data;
             console.log('Event Flight List: ', eventFlightList);
+            
             Object.keys(eventFlightList).forEach((key) => {
                eventFlightList[key].id = key;
                eventFlights.push(eventFlightList[key]);
@@ -149,7 +149,7 @@ app.factory("FlightFactory", ($q, $http, FBCreds, $sce, APICreds) => {
 
 
 
-   return {getFlights, postNewFlight, deleteFlight, getSingleFlight, updateFlight, getEventFlights, getNewFlightStats};
+   return {getFlights, postNewFlight, deleteFlight, getSingleFlight, updateFlightInFirebase, getEventFlights, getNewFlightStats};
 
 
    });

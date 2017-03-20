@@ -1,0 +1,28 @@
+// Need Airport Code,
+// Full airport name,
+// Full name of city airport is in,
+// Link to official airport map
+
+"airports": [
+        {
+            "LGA": {
+                "airport_code": "LGA",
+                "airport_name": "LaGuardia Airport",
+                "airport_cityState": "New York City, NY"
+            }
+        },
+        {    
+            "BNA": {
+                "airport_code": "BNA",
+                "airport_name": "Nashville International Airport",
+                "airport_cityState": "Nashville, TN"
+            }
+        },    
+        {
+            "ATL": {
+                "airport_code": "ATL",
+                "airport_name": "Hartsfield Jackson International Airport",
+                "airport_cityState": "Atlanta, GA"
+            }
+        }
+    ]

@@ -42,7 +42,7 @@ app.controller("FlightNewCtrl", function($scope, FlightFactory, $location, AuthF
         });
     });
     console.log("you added a new Flight to be tracked:", $scope.newFlight);
-    $scope.newFlightData = {};
+
   };
 
  //  EventFactory.getEventList(user)
