@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("EventEditCtrl", function($scope, $location, $routeParams, EventFactory, AuthFactory){
+app.controller("EventEditCtrl", function($scope, $location, $routeParams, EventFactory, AuthFactory) {
 
   let user = AuthFactory.getUser();
 
@@ -14,11 +14,14 @@ app.controller("EventEditCtrl", function($scope, $location, $routeParams, EventF
       $scope.newEvent = response;
   });
     
-  $scope.addNewFlight = function(){
+  $scope.addNewEvent = function(){
     EventFactory.updateEvent($routeParams.eventId, $scope.newEvent)
     .then( function successCallback(response) {
-      console.log(response);
+      // console.log(response);
       $location.url("/events/list");
+      
+      Materialize.toast("Event edited successfully", 4000); 
+
     });
   };
 });

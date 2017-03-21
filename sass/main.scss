@@ -1,6 +1,3 @@
-body {
-
-}
 
 #mainNav {
 	background-color: #0d47a1;
@@ -8,6 +5,10 @@ body {
 
 #navInput {
 	margin-top: 9px;
+}
+
+.logoContainer {
+	font-size: 1.6em;
 }
 
 .logoContainer a {
@@ -108,8 +109,18 @@ body {
 	background-color: #eceff1;
 	border-radius: 5px;
 	box-shadow: 3px 3px 3px;
+}
 
+.event-card h1 {
+	font-size: 2.5em;
+}
 
+// Event Form
+
+#eventFormHeader h3 {
+	margin-bottom: 25px;
+	font-size: 1.5em;
+	margin-left: 1em;
 }
 
 // FLIGHT LIST
@@ -150,6 +161,10 @@ hr {
 	padding-bottom: 10px !important;
 	padding-top: 20px !important;
 	box-shadow: 3px 3px 3px;
+}
+
+.flight-card p {
+	line-height: 2.8em;
 }
 
 .pax-card-info p {
@@ -204,6 +219,12 @@ hr {
 }
 
 // FLIGHT DETAILS
+
+#flightDetailsTitle {
+	font-size: 1.5em;
+	margin-bottom: 0;
+	margin-left: 1em;
+}
 
 #flightDetailBtnDiv {
 	margin-top: 15px;
@@ -297,6 +318,8 @@ hr {
 	margin-left: 2em;
 }
 
+.toasty {
+}
 
 // EVENT LIST
 
@@ -332,5 +355,4 @@ hr {
 
 #event-form h1 {
 	font-size: 2.5em;
-
 }

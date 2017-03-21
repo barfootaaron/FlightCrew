@@ -14,7 +14,8 @@ app.controller("FlightNewCtrl", function($scope, FlightFactory, $location, AuthF
     arrMonth: "",
     arrYear: "2017",
     arrDate: "",
-    airline: "",
+    airlineName: "",
+    airlineCode: "",
     flightNumber: "",
     flightStatsId: "",
     depAirport: "",
@@ -30,19 +31,19 @@ app.controller("FlightNewCtrl", function($scope, FlightFactory, $location, AuthF
   };
 
   $scope.addNewFlight = function() {
-    console.log($scope.newFlight);
+    // console.log($scope.newFlight);
 
     FlightFactory.getNewFlightStats($scope.newFlight)
       .then(function(flightData) {
- 
 
     FlightFactory.postNewFlight($scope.newFlight)
       .then(function(flightData) {
         $location.url("/flights/list");
         });
     });
-    console.log("you added a new Flight to be tracked:", $scope.newFlight);
+    console.log("You've added a new Flight to be tracked:", $scope.newFlight);
 
+     Materialize.toast("New flight added successfully", 4000, "rounded"); 
   };
 
  //  EventFactory.getEventList(user)

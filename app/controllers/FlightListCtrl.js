@@ -18,6 +18,31 @@ app.controller("FlightListCtrl", function($scope, FlightFactory, AuthFactory, Ev
 		$scope.flights = flightList;
 	});
 
+   // THIS IS STYLED AS THE "CHECK OFF BTN", BUT IT DOES THE SAME AS THE DELETE BUTTON ON FLIGHT DETIAIL VIEW
+   $scope.flightDelete = function(flightId) {
+      FlightFactory.deleteFlight(flightId)
+      .then( function(response) {
+         FlightFactory.getFlights(user)
+         .then( function(flightList) {
+            $scope.flights = flightList;
+            $location.url("/flights/list");
+            Materialize.toast("Flight Removed", 4000, "rounded");
+         });
+      });
+   };
+
+   $scope.flightUpdate = function(flightId) {
+      FlightFactory.updateFlight(flightId)
+      .then( function(response) {
+         FlightFactory.getFlights(user)
+         .then( function(flightList) {
+            $scope.flights = flightList;
+            $location.url("/flights/list");
+            Materialize.toast("Flight Data Updated", 4000, "rounded");
+         });
+      });
+   };
+
    // EventFactory.getEvents(user)
    // .then( function(eventList) {
    //    $scope.events = eventList;

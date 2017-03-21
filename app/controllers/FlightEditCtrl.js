@@ -19,6 +19,9 @@ app.controller("FlightEditCtrl", function($scope, $location, $routeParams, Fligh
     FlightFactory.updateFlightInFirebase($routeParams.flightId, $scope.newFlight)
     .then( function successCallback(response) {
       // console.log('response', response);
+
+      Materialize.toast("You've successfully edited a flight", 4000, "rounded"); 
+
       $location.url("/flights/list");
     });
   };

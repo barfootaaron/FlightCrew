@@ -1,17 +1,20 @@
+<!-- <h1 id="flightDetailsTitle"> <i class="material-icons">label_outline</i> Flight Details</h1>
+ -->
 <div id="flightDetailsContainer">
     <div id="flightDetailsHeader">
-        <h3>{{selectedFlight.airline}} Flight # {{selectedFlight.flightNumber}}  on {{selectedFlight.arrDate | date:'fullDate'}}</h3>
+        <h3>{{selectedFlight.airlineName}} Flight # {{selectedFlight.flightNumber}} | {{selectedFlight.depAirport}}<i class="material-icons">arrow_forward</i>{{selectedFlight.arrAirport}}</h3>
         <br>
-        
-        <h3>{{selectedFlight.depAirport}}<i class="material-icons">arrow_forward</i>{{selectedFlight.arrAirport}}          
+
+        <h3>{{selectedFlight.arrDate | date:'fullDate'}}</h3>
+
     </div>
         
     <hr>
 
     <ul class="list-group">
         <div class="material-icons large ">query_builder</div><br>
-        <h5><strong>Departure Time:</strong> {{selectedFlight.depTime  | date:'shortTime'}}</h5>
-        <h5><strong>Arrival Time:</strong> {{selectedFlight.arrTime  | date:'shortTime'}}</h5>
+        <h5><strong>Departure Time from {{selectedFlight.depAirport}}:</strong> {{selectedFlight.depTime  | date:'shortTime'}}</h5>
+        <h5><strong>Arrival Time at {{selectedFlight.arrAirport}}:</strong> {{selectedFlight.arrTime  | date:'shortTime'}}</h5>
         <h5><strong>Arrival Terminal at {{selectedFlight.arrAirport}}: {{selectedFlight.arrTerm}}</strong></h5><br>
         <a>TODO: Link to arrival airport map</a>
         
@@ -21,26 +24,27 @@
 
         <h5><strong>Total Number of Passengers:</strong> {{selectedFlight.numPax}}</h5>
 
-        <h5><strong>Primary Contact:</strong> {{selectedFlight.firstContactName}} <a ng-href="tel:+1{{selectedFlight.firstContactNum}}">(tel #: {{selectedFlight.firstContactNum}}) 
-        <a class="btn-floating btn-small waves-effect waves-light blue" ng-href="tel:+1{{selectedFlight.firstContactNum}}">
+        <h5><strong>Primary Passenger Contact:</strong> {{selectedFlight.firstContactName}} <a ng-href="tel:+1{{selectedFlight.firstContactNum}}">(tel #: {{selectedFlight.firstContactNum}}) 
+        <a class="btn-floating btn-small waves-effect waves-light green" ng-href="tel:+1{{selectedFlight.firstContactNum}}">
             <i class="material-icons">call</i></a></h5>
 
-        <h5><strong>Secondary Contact:</strong> {{selectedFlight.secondContactName}} <a ng-href="tel:+1{{selectedFlight.secondContactNum}}">(tel #: {{selectedFlight.secondContactNum}}) 
-        <a class="btn-floating btn-small waves-effect waves-light blue" ng-href="tel:+1{{selectedFlight.secondContactNum}}">
+        <h5><strong>Secondary Passenger Contact:</strong> {{selectedFlight.secondContactName}} <a ng-href="tel:+1{{selectedFlight.secondContactNum}}">(tel #: {{selectedFlight.secondContactNum}}) 
+        <a class="btn-floating btn-small waves-effect waves-light green" ng-href="tel:+1{{selectedFlight.secondContactNum}}">
             <i class="material-icons">call</i></a></h5>
         </a>
     </ul>
 
     <hr>
 
-    <!-- EDIT AND DELETE BTNS FOR SELECTED FLIGHT -->           
+    <!-- EDIT, UPDATE AND DELETE BTNS FOR SELECTED FLIGHT -->           
 
     <div id="flightDetailBtnDiv">
-        <a class="btn-floating infoListBtn btn-large waves-effect waves-light"  ng-href="#!/flights/{{flight.id}}">
+
+        <a class="btn-floating btn-large waves-effect waves-light"  ng-click="flightUpdate(selectedFlight)">
             <i class="material-icons updateStatusBtn btn-floating btn-large waves-effect waves-light">track_changes</i>
         </a>
 
-        <a class="btn-floating btn-large waves-effect waves-light green darken-1" ng-href="#!/flights/{{selectedFlight.id}}/edit">
+        <a class="btn-floating btn-large waves-effect waves-light teal lighten-1" ng-href="#!/flights/{{selectedFlight.id}}/edit">
             <i class="material-icons">mode_edit</i>
         </a>
 
