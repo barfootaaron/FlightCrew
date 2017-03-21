@@ -14,8 +14,13 @@
 
    <div id="eventContainer" class="row">
    	<div ng-repeat="event in events" class="col s12 event-card">
-   		<h1><a ng-href="#!/events/{{event.id}}">{{event.title}}</a></h1>
-   		<i>*{{event.startDate | date:'shortDate'}} through {{event.endDate | date:'shortDate'}}</i>
+   		<h1>
+        <a ng-href="#!/events/{{event.id}}">{{event.title}}</a>
+      </h1>
+   		
+      <i class="material-icons">location_on</i>
+      
+      <i>*{{event.startDate | date:'shortDate'}} through {{event.endDate | date:'shortDate'}}</i>
          <p>Location: {{event.location}}</p>
          <p>Area Airports: {{event.airports}}</p>
    	</div>

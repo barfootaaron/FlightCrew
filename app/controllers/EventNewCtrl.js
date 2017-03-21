@@ -5,8 +5,8 @@ console.log("EventNewCtrl");
 
 	let user = AuthFactory.getUser();
 
-	$scope.title = "New Event";
-	$scope.btnText = "Add New Event";
+	$scope.title = "Add New Event";
+	$scope.btnText = "Add Event";
 
 	$scope.newEvent = {
 		uid: user,
@@ -22,6 +22,8 @@ console.log("EventNewCtrl");
         });
         console.log("you added a new event", $scope.newEvent);
         $scope.newEvent = {};
+
+        Materialize.toast("New event added successfully", 4000); 
     };
 
 });
