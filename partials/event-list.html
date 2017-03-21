@@ -18,11 +18,20 @@
         <a ng-href="#!/events/{{event.id}}">{{event.title}}</a>
       </h1>
    		
-      <i class="material-icons">location_on</i>
+      <b class="eventCardDetailLine">
+        <i class="eventCardIcon material-icons">date_range</i>{{event.startDate | date:'fullDate'}} through {{event.endDate | date:'fullDate'}}</i>
+      </b>
+      <br>
+         
+      <b class="eventCardDetailLine">
+        <i class="eventCardIcon material-icons">location_on</i>{{event.location}}
+      </b>
+      <br>
       
-      <i>*{{event.startDate | date:'shortDate'}} through {{event.endDate | date:'shortDate'}}</i>
-         <p>Location: {{event.location}}</p>
-         <p>Area Airports: {{event.airports}}</p>
-   	</div>
+      <b class="eventCardDetailLine">
+        <i class="eventCardIcon material-icons">local_airport</i>{{event.airports}}
+      </b>
+   	
+    </div>
    </div>
 </div>
