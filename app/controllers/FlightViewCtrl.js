@@ -26,21 +26,20 @@ app.controller("FlightViewCtrl", function ($scope, $routeParams, FlightFactory, 
 	// 	$scope.isPinned	= user === $scope.selectedFlight.uid;
 	
 	$scope.flightUpdate = function(flightId) {
-   FlightFactory.updateFlight(flightId)
+   FlightFactory.updateFlightStats(flightId)
       .then( function(response) {
          FlightFactory.getFlights(user)
          .then( function(flightList) {
             $scope.flights = flightList;
-            console.log('flightUPDATE ALIVE', flightId);
+            console.log('FLIGHT UPDATED', flightId);
             // $location.url("/flights/:flightId");
-            Materialize.toast("Flight Stats Updated", 4000, "rounded");
+            Materialize.toast("Flight Data Updated", 4000, "rounded");
          });
       });
    };
 
 	$scope.addFlight = function(){
 		let newFlight = $scope.selectedFlight;
-
 		newFlight.uid = user;
 		newFlight.id = undefined;
 		FlightFactory.postNewFlight(newFlight);

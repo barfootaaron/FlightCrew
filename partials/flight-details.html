@@ -12,26 +12,45 @@
     <hr>
 
     <ul class="list-group">
-        <div class="material-icons large ">query_builder</div><br>
-        <h5><strong>Departure Time from {{selectedFlight.depAirport}}:</strong> {{selectedFlight.depTime  | date:'shortTime'}}</h5>
-        <h5><strong>Arrival Time at {{selectedFlight.arrAirport}}:</strong> {{selectedFlight.arrTime  | date:'shortTime'}}</h5>
-        <h5><strong>Arrival Terminal at {{selectedFlight.arrAirport}}: {{selectedFlight.arrTerm}}</strong></h5><br>
-        <a>TODO: Link to arrival airport map</a>
+
+        <!-- CURRENT STATUS SECTION -->
+        <div class="material-icons large ">info_outline</div><br>
+        
+        <h5 id="flightDetailStatus"><strong>Current Status: </strong></h5>
         
         <hr>
+
+        <!-- FLIGHT AND ARRIVAL DETAIL SECTION -->
+        <div class="material-icons large fightDetailHeaderIcon">query_builder</div><br>
         
+        <h5><strong>Current Departure Time from {{selectedFlight.depAirport}}:</strong> {{selectedFlight.depTime  | date:'shortTime'}}</h5>
+        
+        <h5><strong>Current Arrival Time at {{selectedFlight.arrAirport}}:</strong> {{selectedFlight.arrTime  | date:'shortTime'}}</h5>
+        
+        <h5><strong>Current Arrival Terminal at {{selectedFlight.arrAirport}}: {{selectedFlight.arrTerm}}</strong></h5><br>
+        <!-- <a>TODO: Link to arrival airport map</a> -->
+        <hr>
+        
+        <!-- PASSENGER DETAIL SECTION -->        
         <div class="material-icons large fightDetailHeaderIcon">perm_identity</div><br>
 
         <h5><strong>Total Number of Passengers:</strong> {{selectedFlight.numPax}}</h5>
 
-        <h5><strong>Primary Passenger Contact:</strong> {{selectedFlight.firstContactName}} <a ng-href="tel:+1{{selectedFlight.firstContactNum}}">(tel #: {{selectedFlight.firstContactNum}}) 
-        <a class="btn-floating btn-small waves-effect waves-light green" ng-href="tel:+1{{selectedFlight.firstContactNum}}">
-            <i class="material-icons">call</i></a></h5>
+        <h5><strong>Primary Passenger Contact:</strong> {{selectedFlight.firstContactName}} 
+            <a ng-href="tel:+1{{selectedFlight.firstContactNum}}">(tel #: {{selectedFlight.firstContactNum}})
+                <a class="btn-floating btn-small waves-effect waves-light green" ng-href="tel:+1{{selectedFlight.firstContactNum}}">
+                    <i class="material-icons">call</i>
+                </a>
+            </a>
+        </h5>
 
-        <h5><strong>Secondary Passenger Contact:</strong> {{selectedFlight.secondContactName}} <a ng-href="tel:+1{{selectedFlight.secondContactNum}}">(tel #: {{selectedFlight.secondContactNum}}) 
-        <a class="btn-floating btn-small waves-effect waves-light green" ng-href="tel:+1{{selectedFlight.secondContactNum}}">
-            <i class="material-icons">call</i></a></h5>
-        </a>
+        <h5><strong>Secondary Passenger Contact:</strong> {{selectedFlight.secondContactName}}
+            <a ng-href="tel:+1{{selectedFlight.secondContactNum}}">(tel #: {{selectedFlight.secondContactNum}}) 
+                <a class="btn-floating btn-small waves-effect waves-light green" ng-href="tel:+1{{selectedFlight.secondContactNum}}">
+                    <i class="material-icons">call</i>
+                </a>
+            </a>
+        </h5>
     </ul>
 
     <hr>

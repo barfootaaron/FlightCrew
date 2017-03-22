@@ -4,7 +4,6 @@ var app = angular.module("FlightCrewApp", ["ngRoute"]).config(function($sceProvi
   $sceProvider.enabled(false);
 });
 
-
 let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
     AuthFactory.isAuthenticated()
     .then ( (userExists) => {
@@ -71,6 +70,11 @@ app.config( function($routeProvider) {
     when('/flights/:flightId/edit', {
       templateUrl: "partials/flight-form.html",
       controller: "FlightEditCtrl",
+      resolve: {isAuth}
+   }).
+    when('/chatroom', {
+      templateUrl: "partials/chatroom.html",
+      controller: "chat",
       resolve: {isAuth}
    }).
    otherwise('/');
