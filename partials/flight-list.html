@@ -1,4 +1,4 @@
-<!-- START SEARCH BAR -->
+<!-- START FLIGHTLIST SEARCH BAR -->
 <div class="search-input" class="col s10">	
     <div class="nav-wrapper">
       <form>
@@ -10,10 +10,10 @@
    	</div>
 	</div>
 </div>
-<!-- END SEARCH BAR -->
+<!-- END FLIGHTLIST SEARCH BAR -->
 
-
-<div id="flightList-container">
+<!-- TEMPLATE AND LOOP FOR LIST OF FLIHT CARDS -->
+ <div id="flightList-container">
 	<div class="flight-card row" ng-repeat="flight in flights | orderBy:'arrTime' | filter:searchText.search">
 		<ul class="flight-card col s12">
 
@@ -26,13 +26,16 @@
 			<i class="passengerHeading">Arrives to {{flight.arrAirport}} at {{flight.arrTime | date:'shortTime'}}</i>
 			<br>
 			<hr>
+
+			<div class="material-icons large ">info_outline</div><br>
+			<h1>Current Status:</h1>
+
+			<hr>
 			<b class="passengerHeading">Arrival Terminal at {{flight.arrAirport}}: {{flight.arrTerm}}</b><br>
 
 			<div class="pax-card-info row">
 				<b class="passengerHeading">Total Number of Passengers: {{flight.numPax}}</b><br>
 				
-<!-- 				<p>Primary Passenger Contact: {{flight.firstContactName}} 	-	<a href="tel:+1{{flight.firstContactNum}}"> <i class="material-icons">call</i>  # {{flight.firstContactNum}}</a></p><br> -->
-
 				<p>Primary Contact: {{flight.firstContactName}} 
 					<a ng-href="tel:+1{{flight.firstContactNum}}">(tel #: {{flight.firstContactNum}}) 
 	        			<a class="btn-floating btn-small waves-effect waves-light green" ng-href="tel:+1{{flight.firstContactNum}}">
