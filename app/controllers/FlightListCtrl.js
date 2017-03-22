@@ -1,6 +1,5 @@
 "use strict";
 
-
 app.controller("FlightListCtrl", function($scope, FlightFactory, AuthFactory, EventFactory, SearchTermData, $routeParams, $location) {
 // console.log("this is FlightListCtrl checking in");
 // $scope.potato = false;
@@ -45,12 +44,12 @@ app.controller("FlightListCtrl", function($scope, FlightFactory, AuthFactory, Ev
          .then( function successCallback (response) {
             console.log('response', response);
           
+         // $location.url("/flights/list");
+         Materialize.toast("Flight Data Updated", 4000, "rounded");
+         $location.url("/flights/list");
          });
       });
-            // $location.url("/flights/list");
-            Materialize.toast("Flight Data Updated", 4000, "rounded");
-             $location.url("/flights/list");
-      };
+   };
    
 
    // EventFactory.getEvents(user)
