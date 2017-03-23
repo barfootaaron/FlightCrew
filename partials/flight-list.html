@@ -19,8 +19,11 @@
 
 			<h1><a ng-href="#!/flights/{{flight.id}}">{{flight.airlineName}} Flight # {{flight.flightNumber}} |
 			{{flight.depAirport}}<i class="material-icons">arrow_forward</i>{{flight.arrAirport}}</a></h1>
+			
+			<!-- <i class="material-icons large ">date_range</i> -->
 			<h1>{{flight.arrDate | date:'fullDate'}}</h1>
 
+			<!-- <div class="material-icons large ">query_builder</div> -->
 			<i class="passengerHeading">*Departs from {{flight.depAirport}} at {{flight.depTime | date:'shortTime'}}</i>
 			<i class="passengerHeading">	|	</i>
 			<i class="passengerHeading">Arrives to {{flight.arrAirport}} at {{flight.arrTime | date:'shortTime'}}</i>
@@ -28,10 +31,8 @@
 			<hr>
 
 			<div class="material-icons large ">info_outline</div><br>
-			<h1>Current Status:</h1>
-
-			<hr>
-			<b class="passengerHeading">Arrival Terminal at {{flight.arrAirport}}: {{flight.arrTerm}}</b><br>
+<!-- <b class="passengerHeading">Current Status: {{flight.status}}</b><br> -->
+			<b class="passengerHeading">Arrival Terminal: {{flight.arrTerm}}</b><br>
 
 			<div class="pax-card-info row">
 				<b class="passengerHeading">Total Number of Passengers: {{flight.numPax}}</b><br>
@@ -62,9 +63,9 @@
 	        		<i class="material-icons infoListBtn btn-floating btn-large waves-effect waves-light teal">view_module</i>
 	    		</a>
 	    		
-	    		<a class="btn-floating infoListBtn btn-large waves-effect waves-light"	ng-click="flightUpdate(flight)">
+<!-- 	    		<a class="btn-floating infoListBtn btn-large waves-effect waves-light"	ng-click="flightUpdate(flight)">
 	        		<i class="material-icons updateStatusBtn btn-floating btn-large waves-effect waves-light">track_changes</i>
-	    		</a>
+	    		</a> -->
 	    		
 	    		<a class="btn-floating btnChecked btn-large waves-effect waves-light blue" ng-click="flightDelete(flight.id)">
             	<i class="material-icons">done</i>

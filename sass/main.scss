@@ -30,8 +30,14 @@
 
 // LOGIN PARTIAL //
 
+#loginPgIcon {
+	width: 100px;
+	height: 100px;
+	margin-bottom: 0;
+}
+
 #loginPgHeader {
-	margin-bottom: 50px;
+	margin-bottom: 30px;
 }
 
 #loginGoogle {
@@ -65,7 +71,7 @@
 }
 
 #login-pg {
-	background-color: #e3f2fd;
+	// background-color: #e3f2fd;
 	color: #546e7a;
 	display: block;
 	text-align: center;
@@ -148,7 +154,7 @@ hr {
 }
 
 .search-input {
-	margin: 3em 10em 1.5em 10em;
+	margin: 2em 10em 1.2em 10em;
 	background-color: #e3f2fd;
 	border-radius: 2px;
 	box-shadow: 2px 2px 2px;
@@ -175,7 +181,7 @@ hr {
 }
 
 .flight-card p {
-	line-height: 2.8em;
+	line-height: 2.3em;
 }
 
 .pax-card-info p {
@@ -184,7 +190,7 @@ hr {
 }
 
 .flight-card h1 {
-	font-size: 2.5em;
+	font-size: 2.1em;
 	margin-bottom: 10px;
 	line-height: 1em;
 	margin-top: 0;
@@ -262,13 +268,19 @@ hr {
 }
 
 #flightDetailsContainer h5 {
-	font-size: 1.2em;
+	font-size: 1.4em;
 	margin-left: 1em;
-	margin-bottom: 1em;
+	margin-bottom: 1.2em;
 }
 
 #flightDetailsContainer h6 {
 	margin-left: 1em;
+}
+
+#flightDetailsContainer h4 {
+	margin-left: 2em;
+	margin-bottom: .5em;
+	font-size: 1.2em;
 }
 
 #flightDetailsContainer h3 {

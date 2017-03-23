@@ -18,7 +18,7 @@ app.controller("FlightListCtrl", function($scope, FlightFactory, AuthFactory, Ev
 		$scope.flights = flightList;
 	});
 
-   // THIS IS STYLED AS THE "CHECK OFF BTN", //
+   // STYLED AS THE "CHECK OFF BTN", //
    // BUT IT DOES THE SAME AS THE DELETE BUTTON ON FLIGHT DETIAIL VIEW //
    $scope.flightDelete = function(flightId) {
       FlightFactory.deleteFlight(flightId)

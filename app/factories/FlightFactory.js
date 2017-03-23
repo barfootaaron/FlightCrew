@@ -16,7 +16,7 @@ app.factory("FlightFactory", ($q, $http, FBCreds, $sce, APICreds) => {
             console.log('userFlightList', userFlightList);
             Object.keys(userFlightList).forEach((key) => {
                userFlightList[key].id = key;
-               console.log('key', key);
+               // console.log('key', key);
                userFlights.push(userFlightList[key]);
             });
             resolve(userFlights);
