@@ -13,7 +13,7 @@
 <!-- END SEARCH BAR -->
 
    <div id="eventContainer" class="row">
-   	<div ng-repeat="event in events" class="col s12 event-card">
+   	<div ng-repeat="event in events | orderBy:'startDate' | filter:searchText.search" class="col s12 event-card">
    		<h1>
         <a ng-href="#!/events/{{event.id}}">{{event.title}}</a>
       </h1>

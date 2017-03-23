@@ -10,6 +10,7 @@ app.controller("FlightNewCtrl", function($scope, FlightFactory, $location, AuthF
   $scope.btnText = "Add New Flight";
   $scope.newFlight = {
     uid: user,
+    status: "Awaiting Takeoff",
     arrDay: "",
     arrMonth: "",
     arrYear: "2017",
