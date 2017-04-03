@@ -1,20 +1,32 @@
-    <div id="eventDetailsContainer">
-        <div id="eventDetailsHeader">
-            <h1>{{selectedEvent.title}}</h1>
-             <hr>
-            <br>
-            <h3>Dates: {{selectedEvent.startDate  | date:'shortDate'}} through {{selectedEvent.endDate  | date:'shortDate'}}</h3>  
-            <h3>Location: {{selectedEvent.location}}</h3>  
-            <h3>Airports: {{selectedEvent.airports}}</h3> 
-        </div>
+ <div class="center locationHeaderDiv">
+    <a class="btn-large"><i class="material-icons right">airplanemode_active</i>Event Details</a>
+</div>
+
+
+<div id="eventDetailsContainer">
+    <div id="eventDetailsHeader">
+      <h1>{{selectedEvent.title}}</h1>
+        
+      <hr>
+      <br>            
+            
+      <h3><i class="eventCardIcon material-icons small">date_range</i> {{selectedEvent.startDate  | date:'shortDate'}} through {{selectedEvent.endDate  | date:'shortDate'}}</h3>  
+            
+      <h3><i class="eventCardIcon material-icons">location_on</i> {{selectedEvent.location}}</h3>  
+            
+      <h3><i class="eventCardIcon material-icons">local_airport</i> {{selectedEvent.airports}}</h3> 
+    </div>
+
+   <hr>
        
-
-    <a class="btn-floating btn-large waves-effect waves-light green" ng-href="#!/events/{{selectedEvent.id}}/edit">
+    <div id="eventDetailsBtnDiv">   
+      <a class="btn-floating btn-large waves-effect waves-light green" ng-href="#!/events/{{selectedEvent.id}}/edit">
         <i class="material-icons">mode_edit</i>
-    </a>
+      </a>
 
-    <a class="btn-floating btn-large waves-effect waves-light red" ng-click="eventDelete(selectedEvent.id)">
+      <a class="btn-floating btn-large waves-effect waves-light red" ng-click="eventDelete(selectedEvent.id)">
         <i class="material-icons">delete</i>
-    </a>
+      </a>
+    </div>    
 
 </div>

@@ -1,5 +1,7 @@
-<!-- <h1 id="flightDetailsTitle"> <i class="material-icons">label_outline</i> Flight Details</h1>
- -->
+ <div class="center locationHeaderDiv">
+    <a class="waves-effect waves-light btn-large"><i class="material-icons right">airplanemode_active</i>Flight Details</a>
+</div>
+
 <div id="flightDetailsContainer">
     <div id="flightDetailsHeader">
         <h3>{{selectedFlight.airlineName}} Flight # {{selectedFlight.flightNumber}} | {{selectedFlight.depAirport}}<i class="material-icons">arrow_forward</i>{{selectedFlight.arrAirport}}</h3>
@@ -14,7 +16,7 @@
     <ul class="list-group">
 
         <!-- CURRENT STATUS SECTION -->
-<!--         <div class="material-icons large ">info_outline</div><br>
+<!-- <div class="material-icons large ">info_outline</div><br>
         
         <h5 id="flightDetailStatus"><strong>Current Status: </strong></h5>
         
@@ -59,7 +61,7 @@
 
     <div id="flightDetailBtnDiv">
 
-        <a class="btn-floating btn-large waves-effect waves-light"  ng-click="flightUpdate(selectedFlight)">
+        <a class="btn tooltipped btn-floating btn-large waves-effect waves-light" data-position="bottom" data-delay="50" data-tooltip="Refresh Flight Info" ng-click="flightUpdate(selectedFlight)">
             <i class="material-icons updateStatusBtn btn-floating btn-large waves-effect waves-light">track_changes</i>
         </a>
 

@@ -6,8 +6,8 @@ app.controller("FlightNewCtrl", function($scope, FlightFactory, $location, AuthF
   let profileName = AuthFactory.getName();
   // console.log('User Name Display Name is: ', profileName);
 
-  $scope.title = "Add a New Flight to track";
-  $scope.btnText = "Add New Flight";
+  $scope.title = "Add New Flight";
+  $scope.btnText = "Add Flight";
   $scope.newFlight = {
     uid: user,
     status: "Awaiting Takeoff",

@@ -40,6 +40,10 @@
 	margin-bottom: 30px;
 }
 
+#loginInputWrap {
+	// background-color: grey;
+}
+
 #loginGoogle {
 	padding: 12px;
 	width: 165px;
@@ -85,14 +89,33 @@
 	padding: 20px;
 }
 
+
 .loginPgInput {
-	color: #546e7a;
+	color:  #546e7a !important;
 	display: inline;
 	text-align: left;
 
 }
 
 // NG-VIEW //
+
+.locationHeaderDiv {
+	display: block;
+	margin-top: 1.5em;
+
+}
+
+.locationHeaderDiv a {
+	border-radius: 30px;
+	background-color: #0d47a1 !important;
+	color: white;
+}
+
+.locationHeader {
+	display: block;
+	color: #37474f;
+	font-size: 1.5em;
+}
 
 body {
 	background-color: #64b5f6;
@@ -134,11 +157,9 @@ body {
 
 // EVENT FORM //
 
-#eventFormHeader h3 {
-	margin-bottom: 25px;
-	font-size: 1.5em;
-	margin-left: 1em;
+#event-form {
 }
+
 
 // FLIGHT LIST //
 
@@ -237,11 +258,11 @@ hr {
 
 // FLIGHT DETAILS //
 
-#flightDetailsTitle {
-	font-size: 1.5em;
-	margin-bottom: 0;
-	margin-left: 1em;
-}
+// #flightDetailsTitle {
+// 	font-size: 1.5em;
+// 	margin-bottom: 0;
+// 	margin-left: 1em;
+// }
 
 #flightDetailBtnDiv {
 	margin-top: 15px;
@@ -259,7 +280,7 @@ hr {
 }
 
 #flightDetailsContainer {
-	margin: 3% 5% auto 5%;
+	margin: 1.2% 5% auto 5%;
 	border: 1px solid #e3f2fd;
 	border-radius: 5px;
 	padding: 15px;
@@ -313,6 +334,7 @@ hr {
 #flight-form {
 	margin-left: 5%;
 	margin-right: 5%;
+	margin-top: 20px;
 }
 
 #firstRow {
@@ -341,8 +363,6 @@ hr {
 	margin-left: 2em;
 }
 
-.toasty {
-}
 
 // EVENT LIST //
 
@@ -353,8 +373,12 @@ hr {
 
 // EVENT DETAILS //
 
+#eventDetailsHeader h1 {
+	color: #546e7a;
+}
+
 #eventDetailsContainer {
-	margin: 5% 5% auto 5%;
+	margin: 1.1% 5% auto 5%;
 	border: 1px solid #e3f2fd;
 	border-radius: 5px;
 	padding: 15px;
@@ -362,10 +386,22 @@ hr {
 	box-shadow: 3px 3px 3px;
 }
 
+#eventDetailsContainer h1 {
+	font-size: 2.4em;
+}
+
+#eventDetailsContainer h3 {
+	font-size: 2.1em;
+}
+
+#eventDetailsBtnDiv {
+	margin-top: 1em;
+}
+
 // EVENT FORM //
 
 #event-form {
-	margin: 30px 5% auto 5%;
+	margin: 20px 5% auto 5%;
 	border: 1px solid #e3f2fd;
 	border-radius: 5px;
 	background-color: #e3f2fd;	
@@ -377,3 +413,5 @@ hr {
 #event-form h1 {
 	font-size: 2.5em;
 }
+
+

@@ -1,9 +1,7 @@
 "use strict";
 
 app.controller("FlightViewCtrl", function ($scope, $routeParams, FlightFactory, AuthFactory, $location) {
-	
 	// $scope.potato = true;
- 
 	$scope.flights = [];
 	// console.log($routeParams.flightId);
 
@@ -12,11 +10,9 @@ app.controller("FlightViewCtrl", function ($scope, $routeParams, FlightFactory, 
 	FlightFactory.getFlights(user)
 	.then( function(flightList) {
 		$scope.flights = flightList;
-
 		$scope.selectedFlight = $scope.flights.filter( function(flight) {
 			return flight.id === $routeParams.flightId;
 		})[0];
-
 		// if (user === $scope.selectedFlight.uid) {
 		// 	$scope.isPinned = true;
 		// } else {
@@ -25,8 +21,13 @@ app.controller("FlightViewCtrl", function ($scope, $routeParams, FlightFactory, 
 
 	// 	$scope.isPinned	= user === $scope.selectedFlight.uid;
 	
-	$scope.flightUpdate = function(flightId) {
+	// CODE TO INITIALIZE MATERIALIZE TOOLTIPS //
+	$(document).ready(function(){
+      $('.tooltipped').tooltip({delay: 500});
+      });
+	
 
+	$scope.flightUpdate = function(flightId) {
       FlightFactory.updateFlightStats(flightId)
          .then( function(flightData) {
             // console.log('flightData', flightData);

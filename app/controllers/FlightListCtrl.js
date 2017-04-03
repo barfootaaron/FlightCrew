@@ -16,6 +16,12 @@ app.controller("FlightListCtrl", function($scope, FlightFactory, AuthFactory, Ev
 	.then( function(flightList) {
       console.log('flightList', flightList);
 		$scope.flights = flightList;
+
+      // CODE TO INITIALIZE MATERIALIZE TOOLTIPS //
+      // $(document).ready(function(){
+      // $('.tooltipped').tooltip({delay: 0});
+      // });
+
 	});
 
    // STYLED AS THE "CHECK OFF BTN", //
