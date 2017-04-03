@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("NavCtrl", function($scope, $window, SearchTermData) {
+app.controller("NavCtrl", function($scope, $window, SearchTermData, $routeParams, $location) {
 	$scope.searchText = SearchTermData;
 	$scope.isLoggedIn = false;
 
@@ -14,7 +14,7 @@ app.controller("NavCtrl", function($scope, $window, SearchTermData) {
          $scope.isLoggedIn = true;
          // console.log("currentUser logged in", user, $scope.isLoggedIn);
 
-     	} else{
+     	} else {
          $scope.isLoggedIn = false;
          // console.log("currentUser logged in", $scope.isLoggedIn);
          //$window.location forces the page to completely reload

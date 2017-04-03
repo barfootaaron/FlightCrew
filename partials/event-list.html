@@ -1,9 +1,13 @@
+<div class="center locationHeaderDiv">
+  <a class="waves-effect waves-light btn-large"><i class="material-icons right">date_range</i>My Events</a>
+</div>
+
 <!-- START SEARCH BAR -->
 <div class="search-input" class="col s10">  
     <div class="nav-wrapper">
       <form>
         <div class="input-field"><!--  ng-touched="false"> -->
-          <input id="search" type="search" ng-model="searchText.search" placeholder="Search events">
+          <input id="search" type="search" ng-model="searchText.search" placeholder="Search your events">
           <label class="label-icon" for="search"><i class="material-icons">search</i></label>
         </div>
       </form>
@@ -19,7 +23,7 @@
       </h1>
    		
       <b class="eventCardDetailLine">
-        <i class="eventCardIcon material-icons">date_range</i>{{event.startDate | date:'fullDate'}} through {{event.endDate | date:'fullDate'}}</i>
+        <i class="eventCardIcon material-icons">date_range</i>{{event.startDate | date:'fullDate'}} through {{event.endDate | date:'fullDate'}}
       </b>
       <br>
          

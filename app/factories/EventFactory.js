@@ -1,6 +1,5 @@
 "use strict";
 
-
 app.factory("EventFactory", ($q, $http, FBCreds, AuthFactory) => {
 	
 	let getEvents = (user) => {
@@ -76,10 +75,6 @@ app.factory("EventFactory", ($q, $http, FBCreds, AuthFactory) => {
 			});
 		});
 	};
-
-
-
-
 
 
 	return {getEvents, postNewEvent, deleteEvent, getSingleEvent, updateEvent};

@@ -47,8 +47,8 @@ app.factory("FlightFactory", ($q, $http, FBCreds, $sce, APICreds) => {
 
                flightId.airlineName = AppendixArray[0].name;
 
-         // Some DL flights weren't returning a value for estimated dep/arr so I am using scheduled arr/dep for now//
-         // But ideally app will show estimatead depTime/arrTime and arrTerm for most accurate results//
+         // Some DL flights weren't returning a value for estimated dep/arr so I am using scheduled arr/dep for now //
+         // But ideally app will show estimatead depTime/arrTime and arrTerm for most accurate results //
                flightId.arrTime = FlightStatusArray.operationalTimes.estimatedGateArrival.dateLocal;
                flightId.depTime = FlightStatusArray.operationalTimes.estimatedGateDeparture.dateLocal;
                flightId.arrDate = FlightStatusArray.operationalTimes.estimatedGateArrival.dateLocal;
@@ -75,24 +75,24 @@ app.factory("FlightFactory", ($q, $http, FBCreds, $sce, APICreds) => {
    };
 
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
-// getNewFlightStats sends newFlight form data to api and returns then assigns desired data about flight //
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// getNewFlightStats sends newFlight form data to api and returns then assigns desired data about flight to newFlight Object//
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
    let getNewFlightStats = (newFlight) => {
       return $q((resolve, reject) => {
          return $http.jsonp(`${APICreds.apiURL}/${newFlight.airlineCode}/${newFlight.flightNumber}/arr/${newFlight.arrYear}/${newFlight.arrMonth}/${newFlight.arrDay}?appId=${APICreds.appKey}&appKey=${APICreds.apiKey}&utc=false`)
          .then((dataObj) => {
-            let newFlightStatusArray = [];
-            let newAppendixArray = [];
+            let NewFlightStatusArray = [];
+            let NewAppendixArray = [];
             
             let newFlightData = dataObj.data;
             console.log('newFlightData', newFlightData);
 
             Object.keys(newFlightData).forEach((key) => {
-               newFlightStatusArray = newFlightData.flightStatuses[0];
-               newAppendixArray = newFlightData.appendix.airlines;
+               NewFlightStatusArray = newFlightData.flightStatuses[0];
+               NewAppendixArray = newFlightData.appendix.airlines;
                // console.log('newAppendixArray', newAppendixArray);
-               newFlight.airlineName = newAppendixArray[0].name;
+               newFlight.airlineName = NewAppendixArray[0].name;
 
 
          // Some DL flights weren't returning a value for estimated dep/arr so I am using scheduled arr/dep for now//
@@ -101,20 +101,20 @@ app.factory("FlightFactory", ($q, $http, FBCreds, $sce, APICreds) => {
                // newFlight.depTime = newFlightDataArray.operationalTimes.estimatedGateDeparture.dateLocal;
                // newFlight.arrDate = newFlightDataArray.operationalTimes.estimatedGateArrival.dateLocal;
 
-               newFlight.arrTime = newFlightStatusArray.operationalTimes.scheduledGateArrival.dateLocal;
-               newFlight.depTime = newFlightStatusArray.operationalTimes.scheduledGateDeparture.dateLocal;
-               newFlight.arrDate = newFlightStatusArray.operationalTimes.scheduledGateArrival.dateLocal;
+               newFlight.arrTime = NewFlightStatusArray.operationalTimes.scheduledGateArrival.dateLocal;
+               newFlight.depTime = NewFlightStatusArray.operationalTimes.scheduledGateDeparture.dateLocal;
+               newFlight.arrDate = NewFlightStatusArray.operationalTimes.scheduledGateArrival.dateLocal;
 
-               newFlight.arrTerm = newFlightStatusArray.airportResources.arrivalTerminal;
+               newFlight.arrTerm = NewFlightStatusArray.airportResources.arrivalTerminal;
                // console.log("newFlight.arrTerm", newFlight.arrTerm);
 
-               newFlight.arrAirport = newFlightStatusArray.arrivalAirportFsCode;
-               newFlight.depAirport = newFlightStatusArray.departureAirportFsCode;
-               newFlight.flightStatsId = newFlightStatusArray.flightId;
+               newFlight.arrAirport = NewFlightStatusArray.arrivalAirportFsCode;
+               newFlight.depAirport = NewFlightStatusArray.departureAirportFsCode;
+               newFlight.flightStatsId = NewFlightStatusArray.flightId;
 
             });
 
-            resolve(newFlightStatusArray);
+            resolve(NewFlightStatusArray);
 
          })
          .catch((error) => {
@@ -164,19 +164,6 @@ app.factory("FlightFactory", ($q, $http, FBCreds, $sce, APICreds) => {
          });
       });
    };
-
-// let postNewFlight = (newFlight) => {
-//       return $q((resolve, reject) => {
-//          $http.post(`${FBCreds.databaseURL}/flights.json`,
-//             JSON.stringify(newFlight))
-//          .then((ObjectFromFirebase) => {
-//             resolve(ObjectFromFirebase);
-//          })
-//          .catch((error) => {
-//             reject(error);
-//          });
-//       });
-//    };
 
 // updateFlightInFirebase posts editedFlight to Firebase
    let updateFlightInFirebase = (flightId, editedFlight) => {

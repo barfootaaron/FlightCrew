@@ -1,9 +1,13 @@
+<div class="center locationHeaderDiv">
+	<a class="btn-large"><i class="material-icons right">airplanemode_active</i>My Flights</a>
+</div>
+
 <!-- START FLIGHTLIST SEARCH BAR -->
 <div class="search-input" class="col s10">	
     <div class="nav-wrapper">
       <form>
         <div class="input-field"><!--  ng-touched="false"> -->
-          <input id="search" type="search" ng-model="searchText.search" placeholder="Search flights">
+          <input id="search" type="search" ng-model="searchText.search" placeholder="Search your flights">
           <label class="label-icon" for="search"><i class="material-icons">search</i></label>
         </div>
       </form>
@@ -12,7 +16,7 @@
 </div>
 <!-- END FLIGHTLIST SEARCH BAR -->
 
-<!-- TEMPLATE AND LOOP FOR LIST OF FLIHT CARDS -->
+<!-- TEMPLATE AND LOOP FOR FLIGHT CARDS LIST -->
  <div id="flightList-container">
 	<div class="flight-card row" ng-repeat="flight in flights | orderBy:'arrTime' | filter:searchText.search">
 		<ul class="flight-card col s12">
@@ -58,8 +62,10 @@
 			</div>
 			<hr>
 			
+			<!-- VIEW DETAILS BTN AND CHECK AS PICKED UP BTN AREA -->		
 			<div class="flightListBtnDiv">
-				<a class="btn-floating infoListBtn btn-large waves-effect waves-light" 	ng-href="#!/flights/{{flight.id}}">
+				
+				<a class="btn-floating infoListBtn btn-large waves-effect waves-light" ng-href="#!/flights/{{flight.id}}">
 	        		<i class="material-icons infoListBtn btn-floating btn-large waves-effect waves-light teal">view_module</i>
 	    		</a>
 	    		
@@ -68,7 +74,7 @@
 	    		</a> -->
 	    		
 	    		<a class="btn-floating btnChecked btn-large waves-effect waves-light blue" ng-click="flightDelete(flight.id)">
-            	<i class="material-icons">done</i>
+            	<i class="material-icons">clear</i>
         		</a>
     		</div>
  		
