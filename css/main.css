@@ -27,6 +27,13 @@
 #loginPgHeader {
   margin-bottom: 30px; }
 
+#loginInputWrap {
+  background-color: #e3f2fd;
+  padding: 20px;
+  width: 60%;
+  border-radius: 10px;
+  margin-left: 20%; }
+
 #loginGoogle {
   padding: 12px;
   width: 165px; }
@@ -66,7 +73,7 @@
 
 .loginPgInput {
   color: #546e7a !important;
-  display: inline;
+  display: block;
   text-align: left; }
 
 .locationHeaderDiv {

@@ -9,29 +9,37 @@
       <h3 id="loginPgHeader">Welcome to FlightCrew</h3>
       
       <div id="loginInputWrap">
-        <h5 id="loginPgHeader">Please Login/Register</h5>
+        <h5 id="loginPgHeader">Please Login / Register</h5>
           
         <div class="row">
-            <i class="col s2"></i>
-            <div class="input-field loginPgInput col s4">
-              <input id="email" class="validate loginPgInput" type="email" ng-model="account.email">
-              <label for="email">Email</label>
-            </div>
-          <div class="input-field loginPgInput col s4">
+          <i class="col s3"></i>
+          <div class="input-field loginPgInput col s6">
+            <input id="email" class="validate loginPgInput" type="email" ng-model="account.email">
+            <label for="email">Email</label>
+          </div>
+          <i class="col s3"></i>
+        </div>
+
+        <div class="row"> 
+        <i class="col s3"></i>
+
+          <div class="input-field loginPgInput col s6">
             <input id="password" class="validate loginPgInput" type="password" ng-model="account.password">
             <label for="password">Password</label>
           </div>
-          <div class="col s2"></div>
-        </div>  
-      </div>    
 
-        
-      <div>
-        <a class="waves-effect waves-light login-btn" ng-click="login()">Login</a>
-        <a class="waves-effect waves-light login-btn" ng-click="register()">Register</a>
-        <br>
-        <a id="loginGoogle" class="waves-effect waves-light login-btn" ng-click="loginGoogle()">Login with Google</a>
-      </div>
+          <i class="col s3"></i>
+        </div>  
+         
+
+        <div>
+          <a class="waves-effect waves-light login-btn" ng-click="login()">Login</a>
+          <a class="waves-effect waves-light login-btn" ng-click="register()">Register</a>
+          <br>
+          <a id="loginGoogle" class="waves-effect waves-light login-btn" ng-click="loginGoogle()">Login with Google</a>
+        </div>
+
+      </div> 
     </section>
   </div>
 </div>

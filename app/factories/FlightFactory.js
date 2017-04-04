@@ -17,6 +17,7 @@ app.factory("FlightFactory", ($q, $http, FBCreds, $sce, APICreds) => {
             Object.keys(userFlightList).forEach((key) => {
                userFlightList[key].id = key;
                // console.log('key', key);
+               
                userFlights.push(userFlightList[key]);
             });
             resolve(userFlights);
@@ -91,7 +92,7 @@ app.factory("FlightFactory", ($q, $http, FBCreds, $sce, APICreds) => {
             Object.keys(newFlightData).forEach((key) => {
                NewFlightStatusArray = newFlightData.flightStatuses[0];
                NewAppendixArray = newFlightData.appendix.airlines;
-               // console.log('newAppendixArray', newAppendixArray);
+               console.log('NewAppendixArray', NewAppendixArray);
                newFlight.airlineName = NewAppendixArray[0].name;
 
 
