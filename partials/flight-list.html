@@ -21,21 +21,26 @@
 	<div class="flight-card row" ng-repeat="flight in flights | orderBy:'arrTime' | filter:searchText.search">
 		<ul class="flight-card col s12">
 
+		
+
 			<h1><a ng-href="#!/flights/{{flight.id}}">{{flight.airlineName}} Flight # {{flight.flightNumber}} |
 			{{flight.depAirport}}<i class="material-icons">arrow_forward</i>{{flight.arrAirport}}</a></h1>
 			
-			<!-- <i class="material-icons large ">date_range</i> -->
 			<h1>{{flight.arrDate | date:'fullDate'}}</h1>
 
-			<!-- <div class="material-icons large ">query_builder</div> -->
 			<i class="passengerHeading">*Departs from {{flight.depAirport}} at {{flight.depTime | date:'shortTime'}}</i>
 			<i class="passengerHeading">	|	</i>
 			<i class="passengerHeading">Arrives to {{flight.arrAirport}} at {{flight.arrTime | date:'shortTime'}}</i>
 			<br>
-			<hr>
+			
+			<div ng-if="flight.arrTime > timeNow">date2005 > date2006</div>
+    		<div ng-if="flight.arrTime < timeNow">date2006 > date2005</div>
 
+			<hr>
+			
+			<!-- PASSENGER AND TERMINAL INFO -->			
 			<div class="material-icons large ">info_outline</div><br>
-<!-- <b class="passengerHeading">Current Status: {{flight.status}}</b><br> -->
+			<!-- <b class="passengerHeading">Current Status: {{flight.status}}</b><br> -->
 			<b class="passengerHeading">Arrival Terminal: {{flight.arrTerm}}</b><br>
 
 			<div class="pax-card-info row">

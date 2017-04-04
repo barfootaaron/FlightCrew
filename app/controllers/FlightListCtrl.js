@@ -8,7 +8,11 @@ app.controller("FlightListCtrl", function($scope, FlightFactory, AuthFactory, Ev
    $scope.isLoggedIn = false;
 	$scope.searchText = SearchTermData;
 
+   $scope.timeNow = new Date();
+   $scope.timeNow.toISOString();
+
    $scope.editedFlight = {}; 
+
 
    let user = AuthFactory.getUser();
 
@@ -16,16 +20,10 @@ app.controller("FlightListCtrl", function($scope, FlightFactory, AuthFactory, Ev
 	.then( function(flightList) {
       console.log('flightList', flightList);
 		$scope.flights = flightList;
-
-      // CODE TO INITIALIZE MATERIALIZE TOOLTIPS //
-      // $(document).ready(function(){
-      // $('.tooltipped').tooltip({delay: 0});
-      // });
-
 	});
 
    // STYLED AS THE "CHECK OFF BTN", //
-   // BUT IT DOES THE SAME AS THE DELETE BUTTON ON FLIGHT DETIAIL VIEW //
+   // DOES THE SAME AS THE DELETE BUTTON ON FLIGHT DETIAIL VIEW //
    $scope.flightDelete = function(flightId) {
       FlightFactory.deleteFlight(flightId)
       .then( function(response) {

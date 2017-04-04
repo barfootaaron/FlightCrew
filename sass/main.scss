@@ -41,7 +41,11 @@
 }
 
 #loginInputWrap {
-	// background-color: grey;
+	background-color: #e3f2fd;
+	padding: 20px;
+	width: 60%;
+	border-radius: 10px;
+	margin-left: 20%;
 }
 
 #loginGoogle {
@@ -92,7 +96,7 @@
 
 .loginPgInput {
 	color:  #546e7a !important;
-	display: inline;
+	display: block;
 	text-align: left;
 
 }
