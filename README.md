@@ -43,7 +43,6 @@ app.constant("APICreds", {
 ## NPM Packages needed to run FlightCrew locally
 To install the necessary node packages for FlightCrew, make sure you have NPM installed on your machine. Then, in your terminal, go to the 'lib' directory, then run the command 'npm install'. This will install all of the node packages required to run FlightCrew locally.
 
-* API AND PACKAGES NEEDED TO RUN APP IN LOCAL ENVIRONMENT
-* REMOVE ALL CONSOLE LOGS AND COMMENTED OUT CODE
+
 
  
