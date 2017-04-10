@@ -7,12 +7,9 @@ var app = angular.module("FlightCrewApp", ["ngRoute"]).config(function($sceProvi
 let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
     AuthFactory.isAuthenticated()
     .then ( (userExists) => {
-    console.log("userExists", userExists);
         if (userExists){
-      console.log("User Authenticated, you good.");
             resolve();
         } else {
-      console.log("Authentication rejected, get tf out.");
             reject();
         }
     });

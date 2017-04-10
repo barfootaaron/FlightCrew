@@ -7,8 +7,6 @@
    <form class="flight-form col s12">
       <div id="firstRow" class="row">
             <input-field class="col s6">
-            <!-- <label for="flight_date">Flight date</label>
-            <input id="flight_date" type="date" class="datepicker" ng-model="newFlight.date" min="2017-03-15"> -->
             <label class="flightFormLabel" for="flight_month">Month of Flight <i> (enter value 1-12)</i></label>
             <input type="number" name="flight_month" ng-model="newFlight.arrMonth">
          </input-field>
@@ -16,13 +14,6 @@
             <label class="flightFormLabel" for="flight_month">Day of Flight <i> (enter value 1-31)</i></label>
             <input type="number" name="flight_month" ng-model="newFlight.arrDay">
          </input-field>
-         
-        <!--  <div class="input-field col s6">
-            <label>Choose Event</label>
-            <select ng-model="newFlight.eventId">
-               <option ng-repeat="event in events" value="{{event.id}}">{{event.title}}</option>
-            </select>            
-         </div> -->
       </div>
 
       <div class="row">
@@ -36,18 +27,6 @@
             <input id="flight_num" type="number" class="form-control" ng-model="newFlight.flightNumber" required>
          </input-field>
       </div>
-
-      <!-- <div class="row">
-         <input-field class="col s6">
-            <label class="flightFormLabel" for="dep_airport">Departing Airport<i> (enter 3 digit airport code - ex: ATL for Atlanta)</i></label>
-            <input id="dep_airport" type="text" class="form-control" ng-model="newFlight.depAirport" required>
-            <a class="flightFormNoteLink" target="_blank" href="http://www.airportcodes.org/"><i>See a full list of airport codes here</i></a>
-         </input-field>  
-         <input-field class="col s6">
-            <label class="flightFormLabel" for="arr_airport">Arrival Airport<i> (enter 3 digit airport code - ex: ATL for Atlanta)</i></label>
-            <input id="arr_airport" type="text" ng-model="newFlight.arrAirport" required>
-         </input-field>
-      </div> -->   
 
       <div class="row">
       <input-field class="col s6">

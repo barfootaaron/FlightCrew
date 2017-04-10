@@ -12,7 +12,6 @@ app.factory('AuthFactory', function(){
 		.catch( function(error){
 			let errorCode = error.code;
 			let errorMessage = error.message;
-			console.log("error:", errorCode, errorMessage);
 		});
 	};
 
@@ -21,17 +20,14 @@ app.factory('AuthFactory', function(){
 		.catch( function(error){
 			let errorCode = error.code;
 			let errorMessage = error.message;
-			console.log("error:", errorCode, errorMessage);
 		});
 	};
 
 	let logoutUser = function(){
-		console.log("logoutUser");
 		return firebase.auth().signOut();
 	};
 
 	let isAuthenticated = function (){
-		console.log("AuthFactory: isAuthenticated");
 		return new Promise ( (resolve, reject) => {
 			firebase.auth().onAuthStateChanged( (user) => {
 				if (user){
