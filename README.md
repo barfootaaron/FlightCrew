@@ -8,10 +8,10 @@ FlightCrew tracks all flights for a trip and notifies the staff assigned to the 
 
 <hr>
 
-#DEV AND API DEPENDENCIES
+# DEV AND API DEPENDENCIES
 
-# DATABASE STORAGE
-This version of FlightCrew uses a Firebase Database to store all flight data and updated the data in Firebase when the app receives new data from the FlightStats API. To run this app, create a Firebase database and enter the API Key, Auth Domain, and Database URL values into the code below, then add this code to a new file at the location app/values/fb-creds.js
+## DATABASE STORAGE
+This version of FlightCrew uses a Firebase Database to store all flight data and updated data when the app receives new data from the FlightStats API. To run this app, you will need to create a Firebase database and enter the API Key, Auth Domain, and Database URL values into the code below, then add this code to a new file at the location app/values/fb-creds.js.
 
 ```
 "use strict";
@@ -24,7 +24,7 @@ app.constant("FBCreds", {
 ```
 
 
-# API
+## API
 Flight Crew uses the FlightStats REST API to acquire original and updated flight data that is requested by the user. A FlightStats API Key and APP Key are needed to run the application. 
 
 * To sign up for an evaluation account for FlightStats, visit the link below. https://developer.flightstats.com
@@ -40,7 +40,7 @@ app.constant("APICreds", {
 });
 ```
 
-# NPM Packages needed to run FlightCrew locally
+## NPM Packages needed to run FlightCrew locally
 To install the necessary node packages for FlightCrew, make sure you have NPM installed on your machine. Then, in your terminal, go to the 'lib' directory, then run the command 'npm install'. This will install all of the node packages required to run FlightCrew locally.
 
 * API AND PACKAGES NEEDED TO RUN APP IN LOCAL ENVIRONMENT
