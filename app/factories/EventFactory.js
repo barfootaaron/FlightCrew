@@ -6,14 +6,10 @@ app.factory("EventFactory", ($q, $http, FBCreds, AuthFactory) => {
 		let eventObj = [];
 		// let user = AuthFactory.getUser();
 
-		console.log("EventFactory");
 		return $q((resolve, reject) => {
-			console.log("user in getEventList", user);
-			console.log("list url", `${FBCreds.databaseURL}/events.json?orderBy="uid"&equalTo="${user}"`); 
 			$http.get(`${FBCreds.databaseURL}/events.json?orderBy="uid"&equalTo="${user}"`)
 			.then((eventObject) => {
 				let eventCollection = eventObject.data;
-				console.log("eventCollection", eventCollection);
 				Object.keys(eventCollection).forEach((key) => {
 					eventCollection[key].id = key;
 					eventObj.push(eventCollection[key]);
@@ -41,7 +37,6 @@ app.factory("EventFactory", ($q, $http, FBCreds, AuthFactory) => {
 	};
 
 	let deleteEvent = (eventId) => {
-		console.log("delete in factory", eventId);
 		return $q((resolve, reject) => {
 			$http.delete(`${FBCreds.databaseURL}/events/${eventId}.json`)
 			.then((ObjectFromFirebase) => {

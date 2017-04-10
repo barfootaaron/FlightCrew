@@ -1,9 +1,7 @@
 "use strict";
 
 app.controller("FlightViewCtrl", function ($scope, $routeParams, FlightFactory, AuthFactory, $location) {
-	// $scope.potato = true;
 	$scope.flights = [];
-	// console.log($routeParams.flightId);
 
 	let user = AuthFactory.getUser();
 
@@ -13,13 +11,7 @@ app.controller("FlightViewCtrl", function ($scope, $routeParams, FlightFactory, 
 		$scope.selectedFlight = $scope.flights.filter( function(flight) {
 			return flight.id === $routeParams.flightId;
 		})[0];
-		// if (user === $scope.selectedFlight.uid) {
-		// 	$scope.isPinned = true;
-		// } else {
-		// 	$scope.isPinned = false;
-		// }
 
-	// 	$scope.isPinned	= user === $scope.selectedFlight.uid;
 	
 	// CODE TO INITIALIZE MATERIALIZE TOOLTIPS //
 	$(document).ready(function(){
@@ -30,16 +22,11 @@ app.controller("FlightViewCtrl", function ($scope, $routeParams, FlightFactory, 
 	$scope.flightUpdate = function(flightId) {
       FlightFactory.updateFlightStats(flightId)
          .then( function(flightData) {
-            // console.log('flightData', flightData);
             $scope.editedFlight = flightId;
-            console.log('$scope.editedFlight', $scope.editedFlight);
     
       FlightFactory.updateFlightInFirebase($routeParams.flightId, $scope.editedFlight)
          .then( function successCallback (response) {
-            console.log('response', response);
-          
-         // $location.url("/flights/list");
-         Materialize.toast("Flight Data Updated", 4000, "rounded");
+            Materialize.toast("Flight Data Updated", 4000, "rounded");
          });
       });
    };
@@ -52,7 +39,6 @@ app.controller("FlightViewCtrl", function ($scope, $routeParams, FlightFactory, 
 	};
 
 	$scope.flightDelete = function(flightId) {
-      // console.log("delete this flight", flightId);
       FlightFactory.deleteFlight(flightId)
       .then( function(response) {
          FlightFactory.getFlights(user)

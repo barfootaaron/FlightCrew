@@ -4,7 +4,6 @@ app.controller("FlightNewCtrl", function($scope, FlightFactory, $location, AuthF
 
   let user = AuthFactory.getUser();
   let profileName = AuthFactory.getName();
-  // console.log('User Name Display Name is: ', profileName);
 
   $scope.title = "Add New Flight";
   $scope.btnText = "Add Flight";
@@ -32,8 +31,6 @@ app.controller("FlightNewCtrl", function($scope, FlightFactory, $location, AuthF
   };
 
   $scope.addNewFlight = function() {
-    // console.log($scope.newFlight);
-
     FlightFactory.getNewFlightStats($scope.newFlight)
       .then(function(flightData) {
 
@@ -42,14 +39,7 @@ app.controller("FlightNewCtrl", function($scope, FlightFactory, $location, AuthF
         $location.url("/flights/list");
         });
     });
-    console.log("You've added a new Flight to be tracked:", $scope.newFlight);
-
      Materialize.toast("New flight added successfully", 4000, "rounded"); 
   };
-
- //  EventFactory.getEventList(user)
-	// .then( function(eventList) {
-	// 	$scope.events = eventList;
- //  });
 
 });
