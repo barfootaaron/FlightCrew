@@ -13,7 +13,6 @@ app.controller("FlightViewCtrl", function ($scope, $routeParams, FlightFactory, 
 		})[0];
 
 	
-	// CODE TO INITIALIZE MATERIALIZE TOOLTIPS //
 	$(document).ready(function(){
       $('.tooltipped').tooltip({delay: 500});
       });

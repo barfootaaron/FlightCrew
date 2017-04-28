@@ -4,7 +4,6 @@ app.controller("NavCtrl", function($scope, $window, SearchTermData, $routeParams
 	$scope.searchText = SearchTermData;
 	$scope.isLoggedIn = false;
 
-	//add a listener for login/logout to show/hide nav items
 	firebase.auth().onAuthStateChanged( function(user) {
       if (user) {
          $scope.isLoggedIn = true;

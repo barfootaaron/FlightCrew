@@ -1,10 +1,7 @@
 "use strict";
 
-//login, logout, register, loginGoogle, clever conditional, authfactory
-
 app.controller("UserCtrl", function($scope, $window, AuthFactory, UserFactory, $location){
 
-    //run these when controller loads
     $scope.account = {
         email: "",
         password: ""
@@ -17,14 +14,11 @@ app.controller("UserCtrl", function($scope, $window, AuthFactory, UserFactory, $
         }, function(error){
         });
     };
-    //end of logout
 
-    //when first loaded, make sure no one is logged in
     if(AuthFactory.isAuthenticated()){
         logout();
     }
 
-    //setup functions to be available to the app for register, login email/password, and google
     $scope.register = () => {
         AuthFactory.createUser({
           email: $scope.account.email,
@@ -63,15 +57,11 @@ app.controller("UserCtrl", function($scope, $window, AuthFactory, UserFactory, $
               }
             });
 
-            //Once logged in, go to another view
 
         }).catch(function(error) {
-            // Handle the Errors.
             var errorCode = error.code;
             var errorMessage = error.message;
-            // The email of the user's account used.
             var email = error.email;
-            // The firebase.auth.AuthCredential type that was used.
             var credential = error.credential;
 
         });

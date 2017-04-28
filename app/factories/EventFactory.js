@@ -4,7 +4,6 @@ app.factory("EventFactory", ($q, $http, FBCreds, AuthFactory) => {
 	
 	let getEvents = (user) => {
 		let eventObj = [];
-		// let user = AuthFactory.getUser();
 
 		return $q((resolve, reject) => {
 			$http.get(`${FBCreds.databaseURL}/events.json?orderBy="uid"&equalTo="${user}"`)
