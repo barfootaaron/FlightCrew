@@ -6,7 +6,10 @@ FlightCrew is intended to be  maintained by a company such as a tour-operator or
 
 FlightCrew tracks all flights for a trip and notifies the staff assigned to the flight for any changes in status. FlightCrew also provides users a real time view of the location, status, and estimated arrival time of the flights.
 
-<hr>
+## Installing
+```
+git clone https://github.com/barfootaaron/FlightCrew.git
+```
 
 # DEV AND API DEPENDENCIES
 

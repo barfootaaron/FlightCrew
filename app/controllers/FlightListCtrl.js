@@ -17,8 +17,7 @@ app.controller("FlightListCtrl", function($scope, FlightFactory, AuthFactory, Ev
 		$scope.flights = flightList;
 	});
 
-   // BTN TO REMOVE FLIGHT ON FLIGHT CARD //
-   // DOES THE SAME AS THE DELETE BUTTON ON FLIGHT DETAIL VIEW //
+
    $scope.flightDelete = function(flightId) {
       FlightFactory.deleteFlight(flightId)
       .then( function(response) {
