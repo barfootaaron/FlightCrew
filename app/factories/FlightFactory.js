@@ -89,10 +89,9 @@ app.factory("FlightFactory", ($q, $http, FBCreds, $sce, APICreds) => {
       });
    };
 
- /////////////////////////////////////////// ///////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////// ///////////////////////////////////////////////////////////////////////////////////
 // postNewFlight sends data for new flight  //
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  
-         
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 
    let postNewFlight = (newFlight) => {
       return $q((resolve, reject) => {
@@ -107,7 +106,6 @@ app.factory("FlightFactory", ($q, $http, FBCreds, $sce, APICreds) => {
       });
    };
 
-// deleteFlight deletes flights AND also is used to 'check off' a flight once pickup is complete - aka remove it.
    let deleteFlight = (flightId) => {
       return $q((resolve, reject) => {
          $http.delete(`${FBCreds.databaseURL}/flights/${flightId}.json`)
@@ -133,7 +131,6 @@ app.factory("FlightFactory", ($q, $http, FBCreds, $sce, APICreds) => {
       });
    };
 
-// updateFlightInFirebase posts editedFlight to Firebase
    let updateFlightInFirebase = (flightId, editedFlight) => {
       return $q(function(resolve, reject) {
          //pass the item we're adjusting and then the actual item
@@ -148,7 +145,6 @@ app.factory("FlightFactory", ($q, $http, FBCreds, $sce, APICreds) => {
       });
    };
 
-//Some day this will load a list of flights assigned to a particular event
    let getEventFlights = (eventId) => {
       let eventFlights = [];
       return $q((resolve, reject) => {
